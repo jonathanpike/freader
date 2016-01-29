@@ -8,3 +8,5 @@ cooper:
   name: Cooper
   email: cooper@interstellar.com
   password_digest: <%= User.digest("password") %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
