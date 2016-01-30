@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>Hi <%= @user.name %>,</p>
+    <p>
+      We got a request to reset your password.  Just click the following link:
+      <%= link_to "Reset your Password", edit_reset_url(@user.reset_token, 
+                                                        email: @user.email) %>
+    </p>
+    <p>This link will expire in 2 hours.</p>
+    <p>If you didn't request a new password, just ignore this email.</p>
+  </body>
+</html>

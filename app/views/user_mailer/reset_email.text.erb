@@ -1,0 +1,9 @@
+Hi <%= @user.name %>,
+
+We got a request to reset your password.  Just click the following link:
+
+<%= edit_reset_url(@user.reset_token, email: @user.email) %>
+
+This link will expire in 2 hours.
+
+If you didn't request a new password, just ignore this email.
