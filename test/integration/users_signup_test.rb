@@ -4,7 +4,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
   def setup
     ActionMailer::Base.deliveries.clear
   end
-  
+
   test "invalid user doesn't get saved" do
     get signup_path
     assert_no_difference 'User.count' do
