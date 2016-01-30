@@ -1,0 +1,13 @@
+<h1>Reset Password</h1>
+
+<%= form_for @user, url: reset_path(params[:id]) do |f| %>
+  <%= hidden_field_tag :email, @user.email %>
+  
+  <%= f.label :password %>:
+  <%= f.password_field :password %><br />
+  
+  <%= f.label :password_confirmation %>:
+  <%= f.password_field :password_confirmation %><br />
+  
+  <%= f.submit "Reset Password" %>
+<% end %>
