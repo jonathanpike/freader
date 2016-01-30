@@ -3,7 +3,7 @@
   <%= f.label :email %>:
   <%= f.email_field :email %> <br />
   
-  <%= f.label :password %>:
+  <%= f.label :password %> (<%= link_to "Forgot Password?", new_reset_path %>):
   <%= f.password_field :password %> <br />
   
   <%= f.submit "Log In" %><br />
