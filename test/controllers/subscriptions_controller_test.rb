@@ -1,7 +1,13 @@
 require 'test_helper'
 
 class SubscriptionsControllerTest < ActionController::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  def setup
+    @user = users(:cooper)
+  end
+
+  test "should get new" do
+    log_in_as(@user)
+    get :new
+    assert_response :success
+  end
 end
