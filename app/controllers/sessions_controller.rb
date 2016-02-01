@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     @user = User.find_by(email: params[:session][:email])
     if @user && @user.authenticate(params[:session][:password])
       activated_log_in(@user)
-      redirect_to root_path
+      redirect_back_or(root_path)
     else
       flash.now[:alert] = "Incorrect username and password"
       render 'new'
