@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160201200400) do
+ActiveRecord::Schema.define(version: 20160202195856) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,8 @@ ActiveRecord::Schema.define(version: 20160201200400) do
     t.datetime "updated_at", null: false
     t.string   "feed_url"
   end
+
+  add_index "sites", ["url"], name: "index_sites_on_url", using: :btree
 
   create_table "subscriptions", force: :cascade do |t|
     t.string   "url"
