@@ -27,7 +27,11 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'puma'
 
+# Fetch and parse RSS feeds
 gem 'feedjira'
+
+# Find RSS feeds from given URL
+gem 'feedbag'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
