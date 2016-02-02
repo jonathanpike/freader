@@ -1,6 +1,10 @@
 <h1>Add a Feed</h1>
 
 <%= form_for @subscription do |f| %>
+  <%= hidden_field_tag :user_id, current_user.id %>
+  
   <%= f.label :url %>
   <%= f.url_field :url %>
+  
+  <%= f.submit "Add new subscription" %>
 <% end %>
