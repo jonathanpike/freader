@@ -2,7 +2,6 @@ class SubscriptionsController < ApplicationController
   before_action :logged_in_user?
 
   def index
-  
   end
 
   def new
@@ -13,10 +12,10 @@ class SubscriptionsController < ApplicationController
     @subscription = Subscription.new(subscription_params)
     if @subscription.save
       @subscription.add_feed_url
-      @subscription.site_exists? 
+      @subscription.site_exists?
       flash[:notice] = "Feed successfully added"
       redirect_to root_path
-    else 
+    else
       flash[:alert] = "Something went wrong.  Please try again."
       render 'new'
     end
