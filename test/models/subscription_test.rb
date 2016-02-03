@@ -5,7 +5,6 @@ class SubscriptionTest < ActiveSupport::TestCase
     @rss = Subscription.create(url: "http://jonathanpike.net")
     @atom = Subscription.create(url: "http://daringfireball.net")
     @site = Site.create(title: "Daring Fireball",
-                        author: "John Gruber",
                         url: "http://daringfireball.net",
                         feed_url: "http://daringfireball.net/feeds/main")
   end
