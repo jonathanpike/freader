@@ -33,6 +33,10 @@ gem 'feedjira'
 # Find RSS feeds from given URL
 gem 'feedbag'
 
+# Resque for Background Jobs
+gem 'resque'
+gem 'resque-scheduler'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
