@@ -7,3 +7,7 @@
 df: 
   url: http://daringfireball.com
   feed_url: http://daringfireball.net/feeds/main
+  
+jp: 
+  url: http://jonathanpike.net
+  feed_url: http://jonathanpike.net/feed.xml
