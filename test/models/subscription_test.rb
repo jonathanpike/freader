@@ -2,7 +2,7 @@ require 'test_helper'
 
 class SubscriptionTest < ActiveSupport::TestCase
   def setup
-    @rss = Subscription.create(url: "http://jonathanpike.net")
+    @rss = Subscription.create(url: "https://marco.org")
     @atom = Subscription.create(url: "http://daringfireball.net")
     @site = Site.create(title: "Daring Fireball",
                         url: "http://daringfireball.net",
@@ -11,7 +11,7 @@ class SubscriptionTest < ActiveSupport::TestCase
 
   test "parse feed works with valid rss address" do
     actual = @rss.parse_feed_url
-    expected = "http://www.jonathanpike.net/feed.xml"
+    expected = "http://marco.org/rss"
     assert_equal expected, actual
   end
 
@@ -24,11 +24,12 @@ class SubscriptionTest < ActiveSupport::TestCase
   test "feed url is present" do
     @rss.add_feed_url
     actual = @rss.feed_url
-    expected = "http://www.jonathanpike.net/feed.xml"
+    expected = "http://marco.org/rss"
     assert_equal expected, actual
   end
 
   test "site_exists? with non-existant site" do
+    assert_nil Site.find_by(url: @rss.url)
     assert_difference 'Site.count' do
       @rss.site_exists?
     end
