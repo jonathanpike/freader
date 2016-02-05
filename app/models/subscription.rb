@@ -16,6 +16,7 @@ class Subscription < ActiveRecord::Base
     else
       new_site = Site.create(url: url,
                              feed_url: parse_feed_url)
+      FetchSiteInformationJob.perform_later(new_site)
       update_attribute(:site_id, new_site.id)
     end
   end
