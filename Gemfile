@@ -33,9 +33,8 @@ gem 'feedjira'
 # Find RSS feeds from given URL
 gem 'feedbag'
 
-# Resque for Background Jobs
-gem 'resque'
-gem 'resque-scheduler'
+# Sucker Punch for Background Jobs
+gem 'sucker_punch', '~> 2.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
