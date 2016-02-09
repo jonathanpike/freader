@@ -17,4 +17,10 @@ class SiteTest < ActiveSupport::TestCase
     @jp.fetch_articles
     assert_equal 10, @jp.articles.count
   end
+
+  test "cleanup deletes articles" do
+    assert @df.articles.length == 1500
+    @df.cleanup
+    assert @df.reload.articles.length == 500
+  end
 end
