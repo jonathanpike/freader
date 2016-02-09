@@ -24,8 +24,17 @@ class Site < ActiveRecord::Base
     end
   end
 
+  # Gets content of article
+  # Summary for RSS feeds, Content for Atom feeds
   def description(index)
     feed.entries[index].summary || feed.entries[index].content
+  end
+
+  # Delete the oldest articles if there are
+  # over n stored in the database
+  def cleanup
+    return unless articles.count > 1000
+    articles.order("created_at").first.destroy until articles.count == 500
   end
 
   private
