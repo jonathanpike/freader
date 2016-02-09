@@ -11,3 +11,7 @@ df:
 jp: 
   url: http://jonathanpike.net
   feed_url: http://jonathanpike.net/feed.xml
+  
+marco: 
+  url: https://marco.org/
+  feed_url: https://marco.org/rss

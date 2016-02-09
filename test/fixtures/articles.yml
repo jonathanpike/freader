@@ -4,8 +4,10 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+<% 1.upto(1500) do |i| %>
+article_<%= i %>:
+  title: article_<%= i %>
+  description: description_<%= i %>
+  published: <%= Date.today.strftime("%Y-%m-%d") %>
+  site: df
+<% end %>
