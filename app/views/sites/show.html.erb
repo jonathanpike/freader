@@ -1,0 +1,14 @@
+<h1><%= @site.title %></h1>
+
+<ul>
+  <% @articles.each do |article| %>
+    <li>
+      <h2><%= article.title.html_safe %></h2>
+      <p><%= article.published %></p>
+      <%= article.description.html_safe %>
+      <hr />
+    </li>
+  <% end %>
+</ul>
+
+<%= paginate @articles %>
