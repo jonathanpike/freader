@@ -33,8 +33,12 @@ gem 'feedjira'
 # Find RSS feeds from given URL
 gem 'feedbag'
 
-# Sucker Punch for Background Jobs
-gem 'sucker_punch', '~> 2.0'
+# Sidekiq for Background Jobs
+gem 'sidekiq'
+gem 'sidekiq-dejavu'
+
+# Pagination
+gem 'kaminari'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
