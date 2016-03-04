@@ -2,6 +2,7 @@ class SubscriptionsController < ApplicationController
   before_action :logged_in_user?
 
   def index
+    @sites = current_user.sites.all.order("LOWER(title) asc")
   end
 
   def new
