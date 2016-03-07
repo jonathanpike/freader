@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Freader</title>
+  <title>The Digest</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -13,6 +13,8 @@
 <% if current_user %>
   <%= current_user.name %>
   <%= link_to "Log Out", logout_path, method: :delete %>
+  <%= link_to "Add New Subscription", new_subscription_path %>
+  <%= link_to "Your Digest", yourdigest_path %>
 <% else %>
   <%= link_to "Log In", login_path %>
   <%= link_to "Sign Up", signup_path %>
