@@ -1,4 +1,4 @@
-# Freader (Working Title) 
+# The Digest
 
 [![Build Status](https://travis-ci.org/jonathanpike/the_digest.svg?branch=master)](https://travis-ci.org/jonathanpike/the_digest)
 
