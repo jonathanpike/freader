@@ -19,9 +19,9 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     get login_path
     post login_path, session: { email: @user.email, password: "password" }
     assert is_logged_in?
-    assert_redirected_to root_path
+    assert_redirected_to yourdigest_path
     follow_redirect!
-    assert_template 'static_pages/index'
+    assert_template 'subscriptions/index'
     delete logout_path
     assert_not is_logged_in?
     assert_redirected_to root_path

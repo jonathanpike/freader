@@ -7,7 +7,7 @@ class FetchNewArticlesJobTest < ActiveJob::TestCase
 
   test "site is updated with new articles" do
     assert @site.articles.count == 0
-    FetchNewArticlesJob.perform_now(@site)
+    FetchNewArticlesJob.perform_now(@site.id)
     assert @site.articles.count > 0
   end
 end
