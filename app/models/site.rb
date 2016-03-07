@@ -12,11 +12,12 @@ class Site < ActiveRecord::Base
   end
 
   # Check if any new articles are posted
-  # If so, add them to the database
+  # If so, add them to the database if they don't already exist
   # rubocop:disable Metrics/AbcSize
   def fetch_articles
     return unless any_new?
     (how_many? - 1).downto(0) do |index|
+      next if Article.where(title: feed.entries[index].title).exists?
       Article.create(title: feed.entries[index].title,
                      description: description(index),
                      published: feed.entries[index].published,
@@ -28,13 +29,6 @@ class Site < ActiveRecord::Base
   # Summary for RSS feeds, Content for Atom feeds
   def description(index)
     feed.entries[index].summary || feed.entries[index].content
-  end
-
-  # Delete the oldest articles if there are
-  # over n stored in the database
-  def cleanup
-    return unless articles.count > 1000
-    articles.order("created_at").first.destroy until articles.count == 500
   end
 
   private
