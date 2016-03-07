@@ -35,7 +35,9 @@ gem 'feedbag'
 
 # Sidekiq for Background Jobs
 gem 'sidekiq'
-gem 'sidekiq-dejavu'
+
+# For Sidekiq Web Interface
+gem 'sinatra', :require => nil
 
 # Pagination
 gem 'kaminari'
