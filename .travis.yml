@@ -10,3 +10,4 @@ script:
 - bundle exec rake rubocop
 services:
 - postgresql
+- redis-server
