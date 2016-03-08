@@ -15,7 +15,7 @@ class SubscriptionsController < ApplicationController
       @subscription.add_feed_url
       @subscription.site_exists?
       flash[:notice] = "Feed successfully added"
-      redirect_to root_path
+      redirect_to yourdigest_path
     else
       flash[:alert] = "Something went wrong.  Please try again."
       render 'new'
