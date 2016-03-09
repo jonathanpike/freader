@@ -1,10 +1,23 @@
 <h1>Add a Feed</h1>
 
+<% if @subscription.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@subscription.errors.count, "error") %> prevented this subscription from being added:</h2>
+ 
+    <ul>
+    <% @subscription.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
 <%= form_for @subscription do |f| %>
   <%= f.hidden_field :user_id, value: current_user.id %>
   
-  <%= f.label :url %>
-  <%= f.url_field :url %>
+  <%= f.label :url, "Enter a URL" %>
+  <%= f.url_field :url, placeholder: "http://yourblog.com" %>
   
   <%= f.submit "Add new subscription" %>
 <% end %>
