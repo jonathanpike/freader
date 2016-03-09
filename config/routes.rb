@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   
   resources :resets, only: [:new, :create, :edit, :update]
   
-  resources :subscriptions, only: [:new, :create]
+  resources :subscriptions, only: [:index, :new, :create]
   
   get 'yourdigest' => 'subscriptions#index'
   
