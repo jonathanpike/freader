@@ -5,9 +5,9 @@ class SubscriptionsController < ApplicationController
     @sites = current_user.sites.all.order("LOWER(title) asc")
   end
 
-  def new
+  def new 
     @subscription = Subscription.new
-  end
+  end 
 
   def create
     @subscription = Subscription.new(subscription_params)
@@ -17,7 +17,7 @@ class SubscriptionsController < ApplicationController
       flash[:notice] = "Feed successfully added"
       redirect_to yourdigest_path
     else
-      flash[:alert] = "Something went wrong.  Please try again."
+      flash.now[:alert] = "Something went wrong.  Please try again."
       render 'new'
     end
   end

@@ -1,0 +1,12 @@
+<div class="new_subscription_box">
+  <h1>Add a Feed</h1>
+
+  <%= form_for Subscription.new do |f| %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+  
+    <%= f.label :url, "Enter a URL" %>
+    <%= f.url_field :url, placeholder: "http://yourblog.com" %>
+  
+    <%= f.submit "Add new subscription" %>
+  <% end %>
+</div>

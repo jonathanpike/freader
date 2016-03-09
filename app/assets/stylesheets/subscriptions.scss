@@ -1,3 +1,70 @@
 // Place all the styles related to the subscriptions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.article {
+  list-style-type: none;
+}
+
+.header {
+  margin-top: 0px;
+}
+
+input[type='email'], input[type='number'], input[type='password'], 
+input[type='search'], input[type='tel'], input[type='text'], 
+input[type='url'], textarea, select { 
+  margin-bottom: 5px;
+}
+
+.new_subscription_box {
+  width: 250px;
+  border: 1px solid #9fa6a0;
+  position: absolute;
+  background-color: white;
+  opacity: 0;
+  left: 25px;
+  padding: 5px;
+}
+
+.new_subscription_box:after, .new_subscription_box:before {
+	bottom: 100%;
+	left: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.new_subscription_box:after {
+	border-color: rgba(255, 255, 255, 0);
+	border-bottom-color: #FFFFFF;
+	border-width: 30px;
+	margin-left: -30px;
+}
+.new_subscription_box:before {
+	border-color: rgba(159, 166, 160, 0);
+	border-bottom-color: #9fa6a0;
+	border-width: 31px;
+	margin-left: -31px;
+}
+
+.invisible { 
+  animation: fadeOut 1s;
+}
+
+.visible {
+  animation: fadeIn 1s;
+  opacity: 1;
+}
+
+@keyframes fadeIn {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  0%   { opacity: 1; }
+  100% { opacity: 0; }
+}
