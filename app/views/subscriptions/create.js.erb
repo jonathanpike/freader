@@ -1,0 +1,11 @@
+$(".new_subscription").bind("ajax:success", function(e, data, status, xhr) {
+    var $this = $(this);
+    $this.find('input[type=url],textarea').val('')
+    $('.new_subscription_box').removeClass('visible');
+    $('.new_subscription_box').addClass('invisible');
+});
+
+
+<% flash.each do |type, message| %>
+  $("#flash-messages").replaceWith("<%= j content_tag :p, message.html_safe, class: "flash text-center" %>");
+<% end %>
