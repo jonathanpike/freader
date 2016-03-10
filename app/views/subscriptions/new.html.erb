@@ -12,12 +12,4 @@
   </div>
 <% end %>
 
-
-<%= form_for @subscription do |f| %>
-  <%= f.hidden_field :user_id, value: current_user.id %>
-  
-  <%= f.label :url, "Enter a URL" %>
-  <%= f.url_field :url, placeholder: "http://yourblog.com" %>
-  
-  <%= f.submit "Add new subscription" %>
-<% end %>
+<%= render "new_subscription" %>
