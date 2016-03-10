@@ -1,18 +1,3 @@
-<h1>Your Digest for <%= Time.now.strftime('%A, %B %e') %></h1>
+<% provide(:title, "My Digest") %>
 
-<ul>
-<% @sites.each do |site| %>
-    <li>
-      <h1><a href=<%= site.url %>><%= site.title %></a>: <%= link_to "View all articles", site_path(site.id) %></h1>
-      <% if site.articles.where("published >= ?", Time.zone.now.beginning_of_day).length > 0 %>
-        <% site.articles.where("published >= ?", Time.zone.now.beginning_of_day).each do |article| %>
-          <h2><%= article.title.html_safe %></h2>
-          <%= article.description.html_safe %>
-        <% end %>
-      <% else %>
-        <p><%= site.title %> not updated today</p>
-      <% end %>
-      <hr />
-    </li>
-<% end %>
-</ul>
+<%= render 'reader' %>
