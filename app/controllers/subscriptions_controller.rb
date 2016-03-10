@@ -11,23 +11,17 @@ class SubscriptionsController < ApplicationController
 
   def create
     @subscription = Subscription.new(subscription_params)
-    if @subscription.save
-      @subscription.add_feed_url
-      @subscription.site_exists?
-      respond_to do |format| 
-        format.html do 
-          flash[:notice] = "Feed successfully added"
-          redirect_to yourdigest_path
-        end
+    respond_to do |format| 
+      if @subscription.save
+        @subscription.add_feed_url
+        @subscription.site_exists?
+        flash.now[:notice] = "#{@subscription.url} successfully added"
+        format.html { redirect_to yourdigest_path }
         format.js 
-      end
-    else
-      respond_to do |format| 
-        format.html do 
-          flash.now[:alert] = "Something went wrong.  Please try again."
-          render 'new'
-        end
-        format.js
+      else
+        flash.now[:alert] = "Something went wrong.  Please try again."
+        format.html { render 'new' }
+        format.js 
       end
     end
   end
