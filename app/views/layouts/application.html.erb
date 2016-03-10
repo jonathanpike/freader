@@ -6,11 +6,14 @@
 <%= render "layouts/app_nav" %>
 
 <%= render "layouts/flash" %>
- 
-<section class="document-body">
-  <%= yield %>
-</section>
 
+<div class="row">
+  <%= render 'sidebar' %>
+   
+  <section class="column column-75 column-offset-5">
+    <%= yield %>
+  </section>
+</div>
 
 </body>
 </html>

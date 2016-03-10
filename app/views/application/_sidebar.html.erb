@@ -1,0 +1,12 @@
+<aside class="column column-20">
+  <%= link_to "Add New Subscription", new_subscription_path, class: 'button new_subscription_button' %>
+  
+  <div class="my_subscriptions">
+    <h4>My Subscriptions</h4>
+    <ul id="subscription_list">
+    <% @sites.each do |site| %>
+      <li><%= link_to site.title, site_path(site.id) %></li>
+    <% end %>
+    </ul>
+  </div>
+</aside>
