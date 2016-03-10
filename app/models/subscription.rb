@@ -4,7 +4,7 @@ class Subscription < ActiveRecord::Base
   belongs_to :user
   belongs_to :site
 
-  validates :url, presence: true
+  validates :url, presence: true, uniqueness: true
   validate :has_feed_url, on: :create
 
   # Checks to see if Site exists in database.
