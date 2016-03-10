@@ -1,0 +1,33 @@
+#logo {
+  margin: 20px 0 0 30px;
+  font-size: 4rem;
+}
+
+.left-margin {
+  margin-left: 30px;
+}
+
+.navigation {
+  margin-right: 30px;
+  list-style-type: none;
+  margin-top: 20px;
+}
+
+.nav-item {
+  display: inline;
+  margin-left: 0.7em;
+}
+
+.my_subscriptions {
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.new_subscription_button {
+  width: 100%;
+}
+
+#subscription_list {
+  list-style-type: none;
+}

@@ -10,10 +10,19 @@
   margin-top: 0px;
 }
 
+.new_subscription {
+  margin-bottom: 0px;
+  padding: 10px;
+}
+
+.subscribe_button {
+  margin-bottom: 0px;
+}
+
 input[type='email'], input[type='number'], input[type='password'], 
 input[type='search'], input[type='tel'], input[type='text'], 
 input[type='url'], textarea, select { 
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .new_subscription_box {
@@ -21,14 +30,16 @@ input[type='url'], textarea, select {
   border: 1px solid #9fa6a0;
   position: absolute;
   background-color: white;
-  opacity: 0;
-  left: 25px;
-  padding: 5px;
+  visibility: hidden;
+  left: 250px;
+  top: 30px;
 }
 
+// http://www.cssarrowplease.com/
+
 .new_subscription_box:after, .new_subscription_box:before {
-	bottom: 100%;
-	left: 50%;
+	right: 100%;
+	top: 50%;
 	border: solid transparent;
 	content: " ";
 	height: 0;
@@ -39,32 +50,32 @@ input[type='url'], textarea, select {
 
 .new_subscription_box:after {
 	border-color: rgba(255, 255, 255, 0);
-	border-bottom-color: #FFFFFF;
+	border-right-color: #FFFFFF;
 	border-width: 30px;
-	margin-left: -30px;
+	margin-top: -30px;
 }
 .new_subscription_box:before {
 	border-color: rgba(159, 166, 160, 0);
-	border-bottom-color: #9fa6a0;
+	border-right-color: #9fa6a0;
 	border-width: 31px;
-	margin-left: -31px;
+	margin-top: -31px;
 }
 
 .invisible { 
-  animation: fadeOut 1s;
+  animation: fadeOut 0.5s;
 }
 
 .visible {
-  animation: fadeIn 1s;
-  opacity: 1;
+  animation: fadeIn 0.5s;
+  animation-fill-mode: forwards;
 }
 
 @keyframes fadeIn {
   0%   { opacity: 0; }
-  100% { opacity: 1; }
+  100% { opacity: 1; visibility: visible; }
 }
 
 @keyframes fadeOut {
-  0%   { opacity: 1; }
-  100% { opacity: 0; }
+  0%   { opacity: 1; visibility: visible;}
+  100% { opacity: 0; visibility: hidden; }
 }
