@@ -1,7 +1,7 @@
 <div class="new_subscription_box">
   <h1>Add a Feed</h1>
 
-  <%= form_for Subscription.new do |f| %>
+  <%= form_for(Subscription.new, remote: true) do |f| %>
     <%= f.hidden_field :user_id, value: current_user.id %>
   
     <%= f.label :url, "Enter a URL" %>

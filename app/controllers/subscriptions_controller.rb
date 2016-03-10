@@ -14,11 +14,21 @@ class SubscriptionsController < ApplicationController
     if @subscription.save
       @subscription.add_feed_url
       @subscription.site_exists?
-      flash[:notice] = "Feed successfully added"
-      redirect_to yourdigest_path
+      respond_to do |format| 
+        format.html do 
+          flash[:notice] = "Feed successfully added"
+          redirect_to yourdigest_path
+        end
+        format.js 
+      end
     else
-      flash.now[:alert] = "Something went wrong.  Please try again."
-      render 'new'
+      respond_to do |format| 
+        format.html do 
+          flash.now[:alert] = "Something went wrong.  Please try again."
+          render 'new'
+        end
+        format.js
+      end
     end
   end
 

@@ -1,0 +1,17 @@
+<header>
+  <nav class="row">
+    <div class="column column-50">
+      <ul class="navigation">
+        <li class="nav-item"><%= link_to "Add New Subscription", new_subscription_path, class: 'new_subscription_button' %></li>
+        <li class="nav-item"><%= link_to "My Digest", yourdigest_path %></li>
+      </ul>
+    </div>
+      
+    <div class="column column-50">
+      <ul class="navigation float-right">
+        <li class="nav-item"><span>Hi, <%= current_user.name %></span></li>
+        <li class="nav-item"><%= link_to "Log Out", logout_path, method: :delete %></li>
+      </ul>
+    </div>
+  </nav> 
+</header>
