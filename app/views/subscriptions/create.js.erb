@@ -6,6 +6,8 @@ $(".new_subscription").bind("ajax:success", function(e, data, status, xhr) {
 });
 
 
+$(".sidebar").html("<%= j render partial: 'sidebar' %>");
+
 <% flash.each do |type, message| %>
   $("#flash-messages").replaceWith("<%= j content_tag :p, message.html_safe, class: "flash text-center" %>");
 <% end %>
