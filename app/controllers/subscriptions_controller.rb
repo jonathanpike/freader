@@ -1,5 +1,6 @@
 class SubscriptionsController < ApplicationController
   before_action :logged_in_user?
+  include ActionView::Helpers::TextHelper
 
   def index
     @sites = current_user.sites.all.order("LOWER(title) asc")
@@ -25,6 +26,33 @@ class SubscriptionsController < ApplicationController
       end
     end
   end
+  
+  def manage 
+    respond_to do |format| 
+      format.html 
+      format.js
+    end 
+  end 
+  
+  def destroy_multiple 
+    @sites = params[:site_id]
+    
+    p @sites[0].keys
+    
+    @sites.each do |site|
+      Subscription.where({site_id: site.first[0].to_i, user_id: current_user.id}).destroy_all
+    end 
+    
+    names = Site.find(@sites[0].keys).map { |site| site.title }.join(", ")
+    
+    flash[:notice] = "Successfully removed the following #{pluralize(@sites[0].count, "subscription")}: #{names}"
+    
+    redirect_to yourdigest_path
+  end 
+  
+  def destroy 
+    
+  end 
 
   private
 

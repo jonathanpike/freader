@@ -1,0 +1,8 @@
+<p class="select_all button">Select All</p>
+
+<%= form_tag subscriptions_destroy_multiple_path, method: :delete do %>
+  <%= submit_tag "Delete Checked" %>
+  <% subscribed_sites.each do |site| %>
+      <li><%= check_box_tag("site_id[]#{site.id}", value = site.id) %> <%= site.title %></li>
+  <% end %>
+<% end %>

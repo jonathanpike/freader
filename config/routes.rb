@@ -16,6 +16,9 @@ Rails.application.routes.draw do
   
   resources :subscriptions, only: [:index, :new, :create]
   
+  get 'subscriptions/manage' => 'subscriptions#manage'
+  delete 'subscriptions/destroy_multiple' => 'subscriptions#destroy_multiple'
+  
   get 'yourdigest' => 'subscriptions#index'
   
   resources :sites, only: [:show]
