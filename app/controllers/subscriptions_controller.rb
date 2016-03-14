@@ -37,17 +37,18 @@ class SubscriptionsController < ApplicationController
   def destroy_multiple 
     @sites = params[:site_id]
     
-    p @sites[0].keys
-    
     @sites.each do |site|
       Subscription.where({site_id: site.first[0].to_i, user_id: current_user.id}).destroy_all
     end 
     
     names = Site.find(@sites[0].keys).map { |site| site.title }.join(", ")
     
-    flash[:notice] = "Successfully removed the following #{pluralize(@sites[0].count, "subscription")}: #{names}"
+    flash.now[:notice] = "Successfully removed the following #{pluralize(@sites[0].count, "subscription")}: #{names}"
     
-    redirect_to yourdigest_path
+    respond_to do |format|
+      format.html { redirect_to yourdigest_path }
+      format.js 
+    end
   end 
   
   def destroy 
