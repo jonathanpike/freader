@@ -1,4 +1,4 @@
-<%= form_for(Subscription.new, remote: true) do |f| %>
+<%= form_for(new_subscription, remote: true) do |f| %>
   <%= f.hidden_field :user_id, value: current_user.id %>
   
   <%= f.label :url, "Enter a URL" %>

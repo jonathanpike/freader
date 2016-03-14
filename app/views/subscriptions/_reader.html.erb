@@ -1,7 +1,7 @@
 <h1 class="header">My Digest for <%= Time.now.strftime('%A, %B %e') %></h1>
     
 <ul>
-  <% @sites.each do |site| %>
+  <% subscribed_sites.each do |site| %>
     <% if any_articles?(site) %>
       <li class="article">
         <h1><a href=<%= site.url %>><%= site.title %></a></h1>
@@ -10,7 +10,7 @@
           <%= sanitize article.description %>
           <% end %>
           <hr />
-      <% end %>
-    </li>
+        <% end %>
+      </li>
   <% end %>
 </ul>
