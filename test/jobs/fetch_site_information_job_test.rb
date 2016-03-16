@@ -7,7 +7,10 @@ class FetchSiteInformationJobTest < ActiveJob::TestCase
 
   test "site is updated with information" do
     assert_nil @site.title
-    FetchSiteInformationJob.perform_now(@site.id)
+    perform_enqueued_jobs do 
+      FetchSiteInformationJob.perform_later(@site.id)
+    end 
+    assert_performed_jobs 1
     assert_equal "Personal Development", @site.reload.title
   end
 end
