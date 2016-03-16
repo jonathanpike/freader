@@ -5,7 +5,7 @@ class Subscription < ActiveRecord::Base
   belongs_to :site
 
   validates :url, presence: true, uniqueness: { scope: :user_id }
-  validate :has_feed_url, on: :create
+  validate :feed_url?, on: :create
 
   # Checks to see if Site exists in database.
   # If not, creates new site with same url and
@@ -41,10 +41,9 @@ class Subscription < ActiveRecord::Base
     return url if url.include?("https://") || url.include?("http://")
     url.prepend("http://")
   end
-  
-  def has_feed_url
-    if parse_feed_url.nil?
-      errors.add(:base, "Sorry, we can't find a feed at this URL.")
-    end 
+
+  def feed_url?
+    return unless parse_feed_url.nil?
+    errors.add(:base, "Sorry, we can't find a feed at this URL.")
   end
 end

@@ -21,6 +21,7 @@ class Site < ActiveRecord::Base
       Article.create(title: feed.entries[index].title,
                      description: description(index),
                      published: feed.entries[index].published,
+                     link: feed.entries[index].url,
                      site_id: id)
     end
   end

@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   layout "marketing"
-  
+
   def new
     redirect_to yourdigest_path if current_user
   end
