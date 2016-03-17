@@ -3,13 +3,18 @@ class SubscriptionsController < ApplicationController
   include ActionView::Helpers::TextHelper
 
   def index
-    @sites = current_user.sites.all.order("LOWER(title) asc")
+    @sites = current_user.sites.order("LOWER(sites.title) asc")
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def new
     @subscription = Subscription.new
   end
 
+  # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
   def create
     @subscription = Subscription.new(subscription_params)
     respond_to do |format|
@@ -19,7 +24,7 @@ class SubscriptionsController < ApplicationController
         flash.now[:notice] = "#{@subscription.url} successfully added"
         format.html { redirect_to yourdigest_path }
       else
-        flash.now[:alert] = "Something went wrong.  Please try again."
+        flash.now[:alert] = @subscription.errors.full_messages.to_sentence
         format.html { render 'new' }
       end
       format.js
@@ -36,8 +41,8 @@ class SubscriptionsController < ApplicationController
   def destroy_multiple
     @sites = params[:site_id]
 
-    @sites.each do |site|
-      Subscription.where(site_id: site.first[0].to_i, user_id: current_user.id).destroy_all
+    @sites[0].each_key do |key|
+      Subscription.where(site_id: key.to_i, user_id: current_user.id).destroy_all
     end
 
     names = Site.find(@sites[0].keys).map(&:title).join(", ")

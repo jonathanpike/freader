@@ -1,5 +1,5 @@
 $(".sidebar").html("<%= j render partial: 'sidebar' %>");
 
 <% flash.each do |type, message| %>
-  $("#flash-messages").replaceWith("<%= j content_tag :p, message.html_safe, class: "flash text-center" %>");
+  $("#flash-messages").html("<%= j content_tag :p, message.html_safe, class: "flash text-center" %>");
 <% end %>
