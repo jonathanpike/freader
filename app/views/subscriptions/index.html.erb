@@ -1,3 +1,19 @@
-<% provide(:title, "My Digest") %>
+<% provide(:title, "The Digest: My Digest") %>
 
-<%= render 'reader' %>
+<h1 class="header">My Digest for <%= Time.now.strftime('%A, %B %e') %></h1>
+    
+<ul>
+  <% @sites.each do |site| %>
+      <% if any_articles?(site) %>
+      <li class="article">
+        <h1><%= link_to site.title, site.url %></h1>
+        <% site.articles.where("articles.published >= ?", Time.zone.now.beginning_of_day).each do |article| %>
+          <h2><%= link_to sanitize(article.title), sanitize(article.link) %></h2>
+          <%= strip_tags(article.description).truncate(180, :separator => " ").html_safe %>
+          <hr />
+        <% end %>
+      </li>
+      <hr />
+      <% end %>
+  <% end %>
+</ul>
