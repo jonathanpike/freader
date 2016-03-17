@@ -21,6 +21,6 @@ class ApplicationController < ActionController::Base
   end
 
   def subscribed_sites
-    current_user.sites.all.order("LOWER(title) asc")
+    current_user.sites.order("LOWER(title) asc")
   end
 end
