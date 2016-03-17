@@ -4,8 +4,10 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+<% 10.times do |num| %>
+subscription_<%= num %>:
+  url: http://test-<%= num %>.com
+  feed_url: http://test-<%= num %>.com/feed
+  site: site_<%= num %>
+  user: brand
+<% end %>

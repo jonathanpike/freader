@@ -7,7 +7,10 @@ class FetchNewArticlesJobTest < ActiveJob::TestCase
 
   test "site is updated with new articles" do
     assert @site.articles.count == 0
-    FetchNewArticlesJob.perform_now(@site.id)
+    perform_enqueued_jobs do
+      FetchNewArticlesJob.perform_later(@site.id)
+    end
+    assert_performed_jobs 1
     assert @site.articles.count > 0
   end
 end

@@ -3,6 +3,13 @@ require 'test_helper'
 class SubscriptionsControllerTest < ActionController::TestCase
   def setup
     @user = users(:cooper)
+    @brand = users(:brand)
+  end
+
+  test "should get index" do
+    log_in_as(@user)
+    get :index
+    assert_response :success
   end
 
   test "add new subscription" do
@@ -20,5 +27,21 @@ class SubscriptionsControllerTest < ActionController::TestCase
       post :create, subscription: { url: "" }
     end
     assert_not_nil flash[:alert]
+  end
+
+  test "destroy multiple subscriptions" do
+    log_in_as(@brand)
+    assert_equal 10, @brand.subscriptions.count
+
+    # Format IDs in way that method is expecting
+    # Hash with id => id
+    arr = @brand.subscriptions.all.map(&:site_id)
+    a = (arr + arr.dup).sort
+    hash = Hash[a.each_slice(2).to_a]
+
+    delete :destroy_multiple, site_id: [hash]
+
+    assert_equal 0, @brand.subscriptions.count
+    assert_not_nil flash[:notice]
   end
 end

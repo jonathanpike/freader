@@ -15,3 +15,10 @@ jp:
 marco: 
   url: https://marco.org/
   feed_url: https://marco.org/rss
+  
+<% 10.times do |num| %>
+site_<%= num %>:
+  title: site_<%= num %>
+  url: http://test-<%= num %>.com
+  feed_url: http://test-<%= num %>.com/feed
+<% end %>
