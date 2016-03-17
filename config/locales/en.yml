@@ -21,3 +21,14 @@
 
 en:
   hello: "Hello world"
+  activerecord: 
+    attributes:
+      subscription:
+        url: "Feed"
+    errors:
+      models:
+        subscription:
+          attributes: 
+            url: 
+              taken: "is already subscribed to"
+              
