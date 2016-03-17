@@ -1,4 +1,5 @@
 Sidekiq.configure_client do |config|
+        
     Rails.application.config.after_initialize do
         articles_loop = JobLooper.new(Site, FetchNewArticlesJob, 900)
         Thread.new do
