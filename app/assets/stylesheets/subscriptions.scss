@@ -28,11 +28,23 @@ input[type='url'], textarea, select {
 .new_subscription_box {
   width: 250px;
   border: 1px solid #9fa6a0;
-  position: absolute;
   background-color: white;
-  visibility: hidden;
-  left: 250px;
-  top: 30px;
+  display: block;
+}
+
+.subscription_label { 
+	color: #9b4dca;
+	display: inline;
+	font-weight: inherit;
+	&:hover {
+  color: #606c76;
+	}
+}
+
+.hide {
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
 }
 
 // http://www.cssarrowplease.com/
@@ -59,23 +71,4 @@ input[type='url'], textarea, select {
 	border-right-color: #9fa6a0;
 	border-width: 31px;
 	margin-top: -31px;
-}
-
-.invisible { 
-  animation: fadeOut 0.5s;
-}
-
-.visible {
-  animation: fadeIn 0.5s;
-  animation-fill-mode: forwards;
-}
-
-@keyframes fadeIn {
-  0%   { opacity: 0; }
-  100% { opacity: 1; visibility: visible; }
-}
-
-@keyframes fadeOut {
-  0%   { opacity: 1; visibility: visible;}
-  100% { opacity: 0; visibility: hidden; }
 }
