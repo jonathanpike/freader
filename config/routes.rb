@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   
   get 'yourdigest' => 'subscriptions#index'
   
-  resources :sites, only: [:show]
+  resources :sites, only: [:index, :show]
   
   # Sidekiq
   require 'sidekiq/web'

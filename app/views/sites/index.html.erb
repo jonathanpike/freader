@@ -1,0 +1,7 @@
+<% provide(:title, "The Digest: Browse Sites") %>
+
+<% @sites.each do |site| %>
+  <h1><%= link_to site.title, site_path(site.id) %></h1> 
+  <div id="subscription_button"><%= render partial: "subscription_button", locals: {site: site} %></div>
+  <hr / >
+<% end %>
