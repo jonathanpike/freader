@@ -28,6 +28,17 @@ class SubscriptionsControllerTest < ActionController::TestCase
     end
     assert_not_nil flash[:alert]
   end
+  
+  test "remove single subscription" do 
+    log_in_as(@brand)
+    sub = @brand.subscriptions.first
+    assert_difference 'Subscription.count', -1 do 
+      put :update, id: sub.site_id 
+    end 
+    
+    assert_not_nil flash[:notice]
+    assert_redirected_to site_path(sub.site_id)
+  end 
 
   test "destroy multiple subscriptions" do
     log_in_as(@brand)
