@@ -2,7 +2,7 @@
 
 <h1><%= link_to @site.title, @site.url %></h1> 
 
-<div id="subscription_button"><%= render "subscription_button" %></div>
+<div id="subscription_button"><%= render partial: "subscription_button", locals: {site: @site} %></div>
 
 
 <ul id="subscription_list">

@@ -1,4 +1,4 @@
-$('#subscription_button').html("<%= j render partial: 'sites/subscription_button' %>");
+$('#subscription_button').html("<%= j render partial: 'sites/subscription_button', locals: { site: @site } %>");
 $(".sidebar").html("<%= j render partial: 'sidebar' %>");
 
 <% flash.each do |type, message| %>
