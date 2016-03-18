@@ -4,6 +4,7 @@ var ready = function() {
   
   $('.sidebar').on('click', '.new_subscription_button', function(e) { 
     e.preventDefault();
+    e.stopPropagation();
     
     new Tether({
       element: '.new_subscription_box',
@@ -20,6 +21,15 @@ var ready = function() {
         $('.new_subscription_box').removeClass('hide')
              .fadeIn('fast'); });
      }
+    visible = ! visible;
+  });
+
+  $(document).on('click', function(e) {
+    if (visible) {
+    	$('.new_subscription_box').fadeOut('fast',function(){
+        $('.new_subscription_box').addClass('hide')
+             .fadeIn(0); });
+    }
     visible = ! visible;
   });
 
