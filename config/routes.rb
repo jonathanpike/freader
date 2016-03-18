@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   
   resources :resets, only: [:new, :create, :edit, :update]
   
-  resources :subscriptions, only: [:index, :new, :create]
+  resources :subscriptions, only: [:index, :new, :create, :update]
   
   get 'subscriptions/manage' => 'subscriptions#manage'
   delete 'subscriptions/destroy_multiple' => 'subscriptions#destroy_multiple'
