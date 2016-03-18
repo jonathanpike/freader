@@ -17,7 +17,7 @@ class SubscriptionsControllerTest < ActionController::TestCase
     assert_difference 'Subscription.count' do
       post :create, subscription: { url: "http://leancrew.com/all-this/" }
     end
-    assert_redirected_to yourdigest_path
+    assert_redirected_to mydigest_path
     assert_not_nil flash[:notice]
   end
 

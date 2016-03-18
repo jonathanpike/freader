@@ -12,7 +12,7 @@ class AddingSubscriptionsTest < ActionDispatch::IntegrationTest
     assert_difference 'Subscription.count' do
       post subscriptions_path, subscription: { url: "http://blog.codinghorror.com/" }
     end
-    assert_redirected_to yourdigest_path
+    assert_redirected_to mydigest_path
     assert_not_nil flash[:notice]
   end
 end
