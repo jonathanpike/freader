@@ -1,6 +1,9 @@
 <% provide(:title, "The Digest: #{@site.title}") %>
 
-<h1><%= link_to @site.title, @site.url %></h1>
+<h1><%= link_to @site.title, @site.url %></h1> 
+
+<div id="subscription_button"><%= render "subscription_button" %></div>
+
 
 <ul id="subscription_list">
   <% @articles.each do |article| %>
