@@ -23,7 +23,7 @@ class SubscriptionsController < ApplicationController
         @subscription.add_feed_url
         @subscription.site_exists?
         flash.now[:notice] = "#{@subscription.url} successfully added"
-        format.html { redirect_to yourdigest_path }
+        format.html { redirect_to mydigest_path }
       else
         flash.now[:alert] = @subscription.errors.full_messages.to_sentence
         format.html { render 'new' }
@@ -70,7 +70,7 @@ class SubscriptionsController < ApplicationController
     flash.now[:notice] = "Successfully removed the following #{pluralize(@sites[0].count, 'subscription')}: #{names}"
 
     respond_to do |format|
-      format.html { redirect_to yourdigest_path }
+      format.html { redirect_to mydigest_path }
       format.js
     end
   end

@@ -2,14 +2,14 @@ class SessionsController < ApplicationController
   layout "marketing"
 
   def new
-    redirect_to yourdigest_path if current_user
+    redirect_to mydigest_path if current_user
   end
 
   def create
     @user = User.find_by(email: params[:session][:email])
     if @user && @user.authenticate(params[:session][:password])
       activated_log_in(@user)
-      redirect_back_or(yourdigest_path)
+      redirect_back_or(mydigest_path)
     else
       flash.now[:alert] = "Incorrect username and password"
       render 'new'

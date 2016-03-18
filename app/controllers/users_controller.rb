@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     if @user.save
       @user.send_activation_email
       flash[:notice] = "Please check your e-mail to activate your account"
-      redirect_to yourdigest_path
+      redirect_to mydigest_path
     else
       render 'new'
     end

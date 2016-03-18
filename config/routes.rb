@@ -19,9 +19,11 @@ Rails.application.routes.draw do
   get 'subscriptions/manage' => 'subscriptions#manage'
   delete 'subscriptions/destroy_multiple' => 'subscriptions#destroy_multiple'
   
-  get 'yourdigest' => 'subscriptions#index'
+  get 'mydigest' => 'subscriptions#index'
   
-  resources :sites, only: [:index, :show]
+  resources :sites, only: [:show]
+  
+  get 'browse' => 'sites#index'
   
   # Sidekiq
   require 'sidekiq/web'
