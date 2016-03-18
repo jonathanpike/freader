@@ -31,15 +31,15 @@ class SubscriptionsController < ApplicationController
       format.js
     end
   end
-  
-  def update 
+
+  def update
     @site = Site.find(params[:id])
     @articles = @site.articles.order("published desc").page(params[:page])
     respond_to do |format|
       if subscribed?(@site.id)
         current_user.subscriptions.where(site_id: @site.id).destroy_all
         flash.now[:notice] = "Successfully unsubscribed from #{@site.title}"
-      else 
+      else
         Subscription.create(url: @site.url,
                             site_id: @site.id,
                             user_id: current_user.id,
@@ -49,7 +49,7 @@ class SubscriptionsController < ApplicationController
       format.html { redirect_to site_path(@site.id) }
       format.js
     end
-  end 
+  end
 
   def manage
     respond_to do |format|
