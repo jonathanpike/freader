@@ -1,2 +1,6 @@
 $('#subscription_button').html("<%= j render partial: 'sites/subscription_button' %>");
 $(".sidebar").html("<%= j render partial: 'sidebar' %>");
+
+<% flash.each do |type, message| %>
+  $("#flash-messages").html("<%= j content_tag :p, message.html_safe, class: "flash text-center" %>");
+<% end %>

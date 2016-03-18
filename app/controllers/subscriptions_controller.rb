@@ -38,11 +38,13 @@ class SubscriptionsController < ApplicationController
     respond_to do |format|
       if subscribed?(@site.id)
         current_user.subscriptions.where(site_id: @site.id).destroy_all
+        flash.now[:notice] = "Successfully unsubscribed from #{@site.title}"
       else 
         Subscription.create(url: @site.url,
                             site_id: @site.id,
                             user_id: current_user.id,
                             feed_url: @site.feed_url)
+        flash.now[:notice] = "Successfully subscribed to #{@site.title}"
       end
       format.html { redirect_to site_path(@site.id) }
       format.js
