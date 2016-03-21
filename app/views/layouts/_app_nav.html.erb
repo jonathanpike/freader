@@ -9,7 +9,7 @@
       
     <div class="column column-50">
       <ul class="navigation float-right">
-        <li class="nav-item"><span>Hi, <%= current_user.name %></span></li>
+        <li class="nav-item"><span>Hi, <%= link_to current_user.name, dashboard_path %></span></li>
         <li class="nav-item"><%= link_to "Log Out", logout_path, method: :delete %></li>
       </ul>
     </div>
