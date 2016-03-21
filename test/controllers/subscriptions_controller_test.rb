@@ -12,6 +12,11 @@ class SubscriptionsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "need to be logged in to get index" do
+    get :index
+    assert_redirected_to login_path
+  end
+
   test "add new subscription" do
     log_in_as(@user)
     assert_difference 'Subscription.count' do
@@ -19,6 +24,13 @@ class SubscriptionsControllerTest < ActionController::TestCase
     end
     assert_redirected_to mydigest_path
     assert_not_nil flash[:notice]
+  end
+
+  test "need to be logged in to add subscription" do
+    assert_no_difference 'Subscription.count' do
+      post :create, subscription: { url: "http://leancrew.com/all-this/" }
+    end
+    assert_redirected_to login_path
   end
 
   test "add invalid subscription" do
@@ -38,6 +50,14 @@ class SubscriptionsControllerTest < ActionController::TestCase
 
     assert_not_nil flash[:notice]
     assert_redirected_to site_path(sub.site_id)
+  end
+
+  test "need to be logged in to remove subscription" do
+    sub = @brand.subscriptions.first
+    assert_no_difference 'Subscription.count' do
+      put :update, id: sub.site_id
+    end
+    assert_redirected_to login_path
   end
 
   test "destroy multiple subscriptions" do
