@@ -2,6 +2,9 @@
 
 <% @sites.each do |site| %>
   <h1><%= link_to site.title, site_path(site.id) %></h1> 
+  <p>Subscribers: <%= Subscription.where(site_id: site.id).count %></p>
   <div id="subscription_button"><%= render partial: "subscription_button", locals: {site: site} %></div>
   <hr / >
 <% end %>
+
+<%= paginate @sites %>
