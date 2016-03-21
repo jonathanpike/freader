@@ -1,0 +1,38 @@
+<% provide(:title, "Editing #{@user.name}'s profile") %>
+
+<h1>Edit Your Profile</h1>
+
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@user.errors.count, "error") %> prevented your profile from being updated:</h2>
+ 
+    <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for @user, method: :put do |f| %>
+  <%= f.label :name %>:
+  <%= f.text_field :name %><br />
+  
+  <%= f.label :email %>:
+  <%= f.email_field :email %><br />
+
+  <%= f.label :current_password %>:
+  <%= f.password_field :current_password %><br />
+
+  <hr />
+  
+  <h4>Change Password (not required):</h4>
+  
+  <%= f.label :new_password %>:
+  <%= f.password_field :password %><br />
+  
+  <%= f.label :new_password_confirmation %>:
+  <%= f.password_field :password_confirmation %><br />
+  
+  <%= f.submit "Edit my Account" %>
+<% end %>

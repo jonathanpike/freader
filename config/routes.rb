@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
   root 'static_pages#index'
 
+  resources :users
+  get 'dashboard' => 'users#show'
+  
   # Sign Up Routes
   get 'signup' => 'users#new'
-  resources :users
-  
+ 
   # Log In/Log Out Routes
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'

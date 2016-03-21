@@ -1,0 +1,7 @@
+<% provide(:title, "Dashboard for #{@user.name}") %>
+
+<h1>Welcome to your Dashboard, <%= @user.name %></h1>
+
+<p>Member since <%= @user.created_at.strftime("%B %Y") %></p>
+
+<%= link_to "Edit Profile", edit_user_path(@user.id) %>

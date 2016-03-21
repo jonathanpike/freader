@@ -15,9 +15,21 @@ class User < ActiveRecord::Base
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
 
-  validates :password, presence: true, length: { minimum: 8 }
+  validates :password, length: { minimum: 8 }, allow_nil: true
 
   has_secure_password
+
+  def auth_and_update(user_params)
+    current_password = user_params.delete(:current_password)
+
+    if authenticate(current_password)
+      update(user_params)
+      true
+    else
+      errors.add(:password, current_password.blank? ? :blank : :invalid)
+      false
+    end
+  end
 
   # Remember Me Methods
   # Generates a remember token and saves a hash to the DB
