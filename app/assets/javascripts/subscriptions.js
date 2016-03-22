@@ -24,6 +24,13 @@ var ready = function() {
     visible = ! visible;
   });
 
+  // If new_subscription_box is clicked, don't let the 
+  // event bubble up to document (for function below)
+  $('.new_subscription_box').on('click', function(e) {
+      e.stopPropagation();
+  });
+
+  // Dismiss popup if document is clicked
   $(document).on('click', function(e) {
     if (visible) {
     	$('.new_subscription_box').fadeOut('fast',function(){
