@@ -22,7 +22,8 @@ class Site < ActiveRecord::Base
                      description: description(index),
                      published: feed.entries[index].published,
                      link: feed.entries[index].url,
-                     site_id: id)
+                     site_id: id,
+                     readingtime: reading_time(index))
     end
   end
 
@@ -30,6 +31,17 @@ class Site < ActiveRecord::Base
   # Summary for RSS feeds, Content for Atom feeds
   def description(index)
     feed.entries[index].summary || feed.entries[index].content
+  end
+
+  # Adds a reading time summary to each article
+  def reading_time(index)
+    words_per_second = 270 / 60
+    total_words = description(index).scan(/\s+/).count
+    article_time_seconds = total_words / words_per_second
+    article_time_minutes = (article_time_seconds / 60).round
+
+    return "less than a minute read" unless article_time_minutes > 0
+    "#{article_time_minutes} min read"
   end
 
   private
