@@ -10,6 +10,7 @@
     <li>
       <h2><%= link_to sanitize(article.title), sanitize(article.link) %></h2>
       <p><%= article.published.strftime('%A, %B %e, %Y') %></p>
+      <span><%= article.readingtime %></span>
       <%= strip_tags(article.description).truncate(180, :separator => " ").html_safe %>
       <br />
       <%= link_to "Read the rest of the post on #{@site.url}...", article.link %>
