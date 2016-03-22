@@ -17,4 +17,9 @@ class SiteTest < ActiveSupport::TestCase
     @jp.fetch_articles
     assert_equal 10, @jp.articles.count
   end
+
+  test "reading time displays time" do
+    @jp.fetch_articles
+    assert_not_nil @jp.reload.articles.last.readingtime
+  end
 end
