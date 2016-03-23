@@ -9,8 +9,7 @@
   <% @articles.each do |article| %>
     <li>
       <h2><%= link_to sanitize(article.title), sanitize(article.link), target: "_blank" %></h2>
-      <p><%= article.published.strftime('%A, %B %e, %Y') %></p>
-      <span><%= article.readingtime %></span>
+      <p><%= article.published.strftime('%A, %B %e, %Y') %> | <span class="eta"><%= article.readingtime %></span></p>
       <%= strip_tags(article.description).truncate(180, :separator => " ").html_safe %>
       <br />
       <%= link_to "Read the rest of the post on #{@site.url}...", article.link %>
