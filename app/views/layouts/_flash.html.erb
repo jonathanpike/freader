@@ -1,7 +1,7 @@
 <div id="flash-messages">
   <% flash.each do |name, msg| %>
     <% if msg.is_a?(String) %>
-      <%= content_tag :div, msg, :class => "flash_#{name}" %>
+      <%= content_tag :p, msg, class: "flash_#{name} flash text-center" %>
     <% end %>
   <% end %>
 </div> 
