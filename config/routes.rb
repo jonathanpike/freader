@@ -27,6 +27,8 @@ Rails.application.routes.draw do
   
   get 'browse' => 'sites#index'
   
+  resources :instapaper, only: [:new, :create]
+  
   # Sidekiq
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'
