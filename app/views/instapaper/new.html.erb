@@ -1,0 +1,15 @@
+<h1>Log In to Instapaper</h1>
+
+<p>The Digest does not store your username or password.  We promise!</p>
+
+<%= form_for @instapaper, url: instapaper_index_path, remote: true do |f| %>
+  <%= f.hidden_field :url, value: @url %>
+  
+  <%= f.label :username %>:
+  <%= f.text_field :username %><br />
+  
+  <%= f.label :password %>:
+  <%= f.password_field :password %><br />
+  
+  <%= f.submit "Save to Instapaper" %>
+<% end %>

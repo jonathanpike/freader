@@ -1,0 +1,2 @@
+module InstapaperHelper
+end
