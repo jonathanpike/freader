@@ -7,15 +7,19 @@
 
 <%= render "layouts/flash" %>
 
-<div class="row">
-  <aside class="column column-20 sidebar">
+<div class="row" id="container">
+  <aside class="column column-20" id="sidebar">
     <%= render 'sidebar' %>
   </aside>
    
-  <section class="column column-75 column-offset-5 content">
+  <section class="column column-75 column-offset-5" id="content">
     <%= yield %>
   </section>
 </div>
+
+<footer id="footer">
+  
+</footer>
 
 </body>
 </html>
