@@ -2,7 +2,7 @@
   <%= f.hidden_field :user_id, value: current_user.id %>
   
   <%= f.label :url, "Enter a URL" %>
-  <%= f.url_field :url, placeholder: "http://yourblog.com" %>
+  <%= f.url_field :url, placeholder: "http://yourblog.com", autofocus: true %>
   
   <%= f.submit "Add new subscription", class: "subscribe_button" %>
 <% end %>

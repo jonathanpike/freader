@@ -10,13 +10,16 @@
   margin-top: 0px;
 }
 
-.new_subscription {
-  margin-bottom: 0px;
-  padding: 10px;
-}
-
 .subscribe_button {
   margin-bottom: 0px;
+}
+
+.my_subscriptions {
+  padding: 5px;
+}
+
+#subscription_list {
+  list-style-type: none;
 }
 
 input[type='email'], input[type='number'], input[type='password'], 
@@ -26,8 +29,7 @@ input[type='url'], textarea, select {
 }
 
 .new_subscription_box {
-  width: 250px;
-  border: 1px solid #9fa6a0;
+  width: 100%;
   background-color: white;
   display: block;
 }
@@ -39,36 +41,4 @@ input[type='url'], textarea, select {
 	&:hover {
   color: #606c76;
 	}
-}
-
-.hide {
-  position: absolute !important;
-  top: -9999px !important;
-  left: -9999px !important;
-}
-
-// http://www.cssarrowplease.com/
-
-.new_subscription_box:after, .new_subscription_box:before {
-	right: 100%;
-	top: 50%;
-	border: solid transparent;
-	content: " ";
-	height: 0;
-	width: 0;
-	position: absolute;
-	pointer-events: none;
-}
-
-.new_subscription_box:after {
-	border-color: rgba(255, 255, 255, 0);
-	border-right-color: #FFFFFF;
-	border-width: 30px;
-	margin-top: -30px;
-}
-.new_subscription_box:before {
-	border-color: rgba(159, 166, 160, 0);
-	border-right-color: #9fa6a0;
-	border-width: 31px;
-	margin-top: -31px;
 }
