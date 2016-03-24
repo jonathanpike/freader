@@ -7,12 +7,16 @@
       <% if any_articles?(site) %>
       <li class="article">
         <h1><%= link_to site.title, site.url %></h1>
+        <ul class="article">
         <% site.articles.where("articles.published >= ?", Time.zone.now.beginning_of_day).each do |article| %>
-          <h2><%= link_to sanitize(article.title), sanitize(article.link) %></h2>
-          <span><%= article.readingtime %></span>
-          <%= strip_tags(article.description).truncate(180, :separator => " ").html_safe %>
-          <hr />
+          <li>
+            <hr />
+            <h2><%= link_to sanitize(article.title), sanitize(article.link) %></h2>
+            <p class="eta"><%= article.readingtime %></p>
+            <%= strip_tags(article.description).truncate(180, :separator => " ").html_safe %>
+          </li>
         <% end %>
+        </ul>
       </li>
       <hr />
       <% end %>
