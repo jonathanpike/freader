@@ -12,6 +12,7 @@
 
 .subscribe_button {
   margin-bottom: 0px;
+  width: 100%;
 }
 
 .my_subscriptions {
@@ -22,9 +23,9 @@
   list-style-type: none;
 }
 
-input[type='email'], input[type='number'], input[type='password'], 
-input[type='search'], input[type='tel'], input[type='text'], 
-input[type='url'], textarea, select { 
+input[type='email'], input[type='number'], input[type='password'],
+input[type='search'], input[type='tel'], input[type='text'],
+input[type='url'], textarea, select {
   margin-bottom: 10px;
 }
 
@@ -34,7 +35,7 @@ input[type='url'], textarea, select {
   display: block;
 }
 
-.subscription_label { 
+.subscription_label {
 	color: #9b4dca;
 	display: inline;
 	font-weight: inherit;
