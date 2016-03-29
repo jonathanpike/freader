@@ -11,3 +11,9 @@ article_<%= i %>:
   published: <%= Date.today.strftime("%Y-%m-%d") %>
   site: df
 <% end %>
+
+article_one:
+  title: Article One
+  description: This is my description
+  published: <%= DateTime.new(2001,2,3,4,5,6) %>
+  site: marco

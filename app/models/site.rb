@@ -17,7 +17,7 @@ class Site < ActiveRecord::Base
   def fetch_articles
     return unless any_new?
     (how_many? - 1).downto(0) do |index|
-      next if Article.where(title: feed.entries[index].title).exists?
+      next if added?(index)
       Article.create(title: feed.entries[index].title,
                      description: description(index),
                      published: feed.entries[index].published,
@@ -27,8 +27,17 @@ class Site < ActiveRecord::Base
     end
   end
 
+  # Don't add articles with either:
+  # 1. The same title; or
+  # 2. A different title (title was changed) but same published date.
+  # rubocop:disable Metrics/LineLength
+  def added?(index)
+    Article.where(title: feed.entries[index].title).exists? || Article.where(site_id: id, published: feed.entries[index].published).exists?
+  end
+
   # Gets content of article
-  # Summary for RSS feeds, Content for Atom feeds
+  # If content exists, get that first (full text)
+  # If not, get summary (usually not full text)
   def description(index)
     feed.entries[index].content || feed.entries[index].summary
   end
