@@ -4,5 +4,5 @@ $("#new_subscription_form").find('input[type=url],textarea').val('')
 $("#sidebar").html("<%= j render partial: 'sidebar' %>");
 
 <% flash.each do |type, message| %>
-  $("#flash-messages").html("<%= j content_tag :p, message.html_safe, class: "flash_#{type} flash text-center" %>");
+  $("#flash-messages").html("<%= j content_tag :p, message.html_safe, class: "flash_#{type}" %>");
 <% end %>
