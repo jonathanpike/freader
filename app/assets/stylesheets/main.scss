@@ -25,3 +25,9 @@
 #sidebar {
   min-width: 250px;
 }
+
+.external:after {
+  content: ' ↗';
+  color: #7a7a7a;
+  font-size: 60%;
+}
