@@ -12,8 +12,8 @@
           <li>
             <hr />
             <h2><%= link_to sanitize(article.title), sanitize(article.link), target: "_blank", class: 'external' %></h2>
-            <p class="eta"><em>estimated</em> <%= article.readingtime %></p>
-            <%= strip_tags(article.description).truncate(180, :separator => " ").html_safe %>
+            <p class="meta"><em>estimated</em> <%= article.readingtime %></p>
+            <p class="content"><%= strip_tags(article.description).truncate(180, :separator => " ").html_safe %></p>
           </li>
         <% end %>
         </ul>
