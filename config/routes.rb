@@ -3,34 +3,34 @@ Rails.application.routes.draw do
 
   resources :users
   get 'dashboard' => 'users#show'
-  
+
   # Sign Up Routes
   get 'signup' => 'users#new'
- 
+
   # Log In/Log Out Routes
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
-  
+
   resources :activations, only: [:edit]
-  
+
   resources :resets, only: [:new, :create, :edit, :update]
-  
+
   resources :subscriptions, only: [:index, :new, :create, :update]
-  
   get 'subscriptions/manage' => 'subscriptions#manage'
   delete 'subscriptions/destroy_multiple' => 'subscriptions#destroy_multiple'
-  
+  get 'subscriptions/export' => 'subscriptions#export', defaults: { :format => 'xml' }
+
   get 'mydigest' => 'subscriptions#index'
-  
+
   resources :sites, only: [:show]
-  
+
   get 'browse' => 'sites#index'
-  
+
   # Sidekiq
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'
-  
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

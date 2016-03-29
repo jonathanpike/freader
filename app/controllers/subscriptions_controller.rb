@@ -78,6 +78,11 @@ class SubscriptionsController < ApplicationController
   def destroy
   end
 
+  def export
+    @subscriptions = current_user.sites.all
+    @username = current_user.name
+  end
+
   private
 
   def subscription_params
