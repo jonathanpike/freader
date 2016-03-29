@@ -31,3 +31,30 @@
   color: #7a7a7a;
   font-size: 60%;
 }
+
+.content {
+  font-size: 17px;
+}
+
+.meta {
+  font-size: 14px;
+}
+
+#flash-messages {
+  text-align: center;
+  font-weight: 700;
+}
+
+.flash_notice {
+  color: #FFFFFF;
+  background-color: #B572DC;
+  padding: 10px;
+  border-radius: .4rem;
+}
+
+.flash_alert {
+  color: #FFFFFF;
+  background-color: #FF4036;
+  padding: 10px;
+  border-radius: .4rem;
+}
