@@ -4,12 +4,11 @@
 
 <div id="subscription_button"><%= render partial: "subscription_button", locals: {site: @site} %></div>
 
-
 <ul id="subscription_list">
   <% @articles.each do |article| %>
     <li>
       <h2><%= link_to sanitize(article.title), sanitize(article.link), target: "_blank", class: 'external' %></h2>
-      <p><%= article.published.strftime('%A, %B %e, %Y') %> | <span class="eta"><%= article.readingtime %></span></p>
+      <p><%= article.published.strftime('%A, %B %e, %Y') %> | <span class="eta"><em>estimated</em> <%= article.readingtime %></span></p>
       <%= strip_tags(article.description).truncate(180, :separator => " ").html_safe %>
       <hr />
     </li>
