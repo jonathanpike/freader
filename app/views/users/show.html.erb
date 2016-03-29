@@ -4,4 +4,7 @@
 
 <p>Member since <%= @user.created_at.strftime("%B %Y") %></p>
 
-<%= link_to "Edit Profile", edit_user_path(@user.id) %>
+<ul>
+  <li><%= link_to "Edit your Profile", edit_user_path(@user.id) %></li>
+  <li><%= link_to "Export your Subscriptions", subscriptions_export_path, "download": true %></li>
+</ul>
