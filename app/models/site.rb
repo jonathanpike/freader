@@ -30,7 +30,7 @@ class Site < ActiveRecord::Base
   # Gets content of article
   # Summary for RSS feeds, Content for Atom feeds
   def description(index)
-    feed.entries[index].summary || feed.entries[index].content
+    feed.entries[index].content || feed.entries[index].summary
   end
 
   # Adds a reading time summary to each article
