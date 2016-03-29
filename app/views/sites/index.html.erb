@@ -1,9 +1,9 @@
 <% provide(:title, "The Digest: Browse Sites") %>
 
 <% @sites.each do |site| %>
-  <h1><%= link_to site.title, site_path(site.id) %></h1> 
-  <p>Subscribers: <%= Subscription.where(site_id: site.id).count %></p>
-  <div id="subscription_button"><%= render partial: "subscription_button", locals: {site: site} %></div>
+  <h1><%= link_to site.title, site_path(site.id) %></h1>
+  <p>Subscribers: <span id=<%= "subscribers_count_#{site.id}" %>><%= Subscription.where(site_id: site.id).count %></span></p>
+  <div id=<%= "subscription_button_#{site.id}" %>><%= render partial: "subscription_button", locals: {site: site} %></div>
   <hr / >
 <% end %>
 

@@ -1,4 +1,5 @@
-$('#subscription_button').html("<%= j render partial: 'sites/subscription_button', locals: { site: @site } %>");
+$("<%= "#subscription_button_#{@site.id}" %>").html("<%= j render partial: 'sites/subscription_button', locals: { site: @site } %>");
+$("<%= "#subscribers_count_#{@site.id}" %>").html("<%= Subscription.where(site_id: @site.id).count %>");
 $("#sidebar").html("<%= j render partial: 'sidebar' %>");
 
 <% flash.each do |type, message| %>
