@@ -1,14 +1,20 @@
 <div class="new_subscription_box">
+  <h4>Quick Add</h4>
   <%= render "new_subscription" %>
+  <hr />
 </div>
-  
+
 <div class="my_subscriptions">
   <h4>My Subscriptions</h4>
-  <%= link_to "Manage Subscriptions", subscriptions_manage_path, remote: true, class: 'manage_subscriptions' %>
-  <hr />
-  <ul id="subscription_list">
-  <% subscribed_sites.each do |site| %>
-    <li><%= link_to site.title, site_path(site.id) %></li>
+  <% if any_subscriptions? %>
+    <%= link_to "Manage Subscriptions", subscriptions_manage_path, remote: true, class: 'manage_subscriptions' %>
+    <hr />
+    <ul id="subscription_list">
+    <% subscribed_sites.each do |site| %>
+      <li><%= link_to site.title, site_path(site.id) %></li>
+    <% end %>
+    </ul>
+  <% else %>
+    <%= link_to "Add your first subscription", new_subscription_path %>
   <% end %>
-  </ul>
 </div>
