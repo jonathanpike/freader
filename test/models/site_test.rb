@@ -31,13 +31,13 @@ class SiteTest < ActiveSupport::TestCase
       unless Article.where(title: "Article One").exists?
         Article.create(title: "Article One",
                        description: "This is my description",
-                       published: DateTime.new(2005,2,3,4,5,6),
+                       published: DateTime.new(2005, 2, 3, 4, 5, 6).in_time_zone,
                        site_id: @marco.id)
       end
-      unless Article.where(site_id: @marco.id, published: DateTime.new(2001,2,3,4,5,6)).exists?
+      unless Article.where(site_id: @marco.id, published: DateTime.new(2001, 2, 3, 4, 5, 6).in_time_zone).exists?
         Article.create(title: "Article Oone",
                        description: "This is my description",
-                       published: DateTime.new(2001,2,3,4,5,6),
+                       published: DateTime.new(2001, 2, 3, 4, 5, 6).in_time_zone,
                        site_id: @marco.id)
       end
     end
