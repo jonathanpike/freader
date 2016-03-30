@@ -3,8 +3,10 @@ var ready = function() {
     var cbxs = $('input[type="checkbox"]');
     cbxs.prop("checked", !cbxs.prop("checked"));
   });
-  
-  $.lockfixed(".my_subscriptions", {offset: {top: 10, bottom: 100}});
+
+  $('#reload').on('click', function(e) {
+    location.reload();
+  });
 };
 
 $(document).ready(ready);

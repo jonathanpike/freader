@@ -2,8 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.article {
+.site {
   list-style-type: none;
+}
+
+.article {
+  @extend .site;
 }
 
 .header {

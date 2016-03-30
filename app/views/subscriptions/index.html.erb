@@ -3,23 +3,28 @@
 <h1 class="header">My Digest for <%= Time.now.strftime('%A, %B %e') %></h1>
 
 <ul>
-  <% @sites.each do |site| %>
-      <% if any_articles?(site) %>
-      <li class="article">
-        <h1><%= link_to site.title, site.url, target: "_blank", class: 'external' %></h1>
-        <ul class="article">
-        <% site.articles.where("articles.published >= ?", Time.zone.now.beginning_of_day).each do |article| %>
-          <li>
-            <hr />
-            <h2><%= link_to sanitize(article.title), sanitize(article.link), target: "_blank", class: 'external' %></h2>
-            <p class="meta"><em>estimated</em> <%= article.readingtime %></p>
-            <p class="content"><%= strip_tags(article.description).truncate(180, :separator => " ").html_safe %></p>
-          </li>
-        <% end %>
-        </ul>
-      </li>
-      <hr />
+  <% if any_articles?(@sites) %>
+    <% @sites.each do |site| %>
+      <% if updated_sites?(site) %>
+        <li class="site">
+          <h1><%= link_to site.title, site.url, target: "_blank", class: 'external' %></h1>
+          <ul class="article">
+          <% site.articles.where("articles.published >= ?", Time.zone.now.beginning_of_day).each do |article| %>
+            <li>
+              <hr />
+              <h2><%= link_to sanitize(article.title), sanitize(article.link), target: "_blank", class: 'external' %></h2>
+              <p class="meta"><em>estimated</em> <%= article.readingtime %></p>
+              <p class="content"><%= strip_tags(article.description).truncate(180, :separator => " ").html_safe %></p>
+            </li>
+          <% end %>
+          </ul>
+        </li>
+        <hr />
       <% end %>
+    <% end %>
+  <% else %>
+    <h3>None of your subscriptions have updated today. <%= image_tag "disappointed.png", size: "60x56" %> </h3> 
+    <span class="button" id="reload">Check again?</span>
   <% end %>
 </ul>
 
