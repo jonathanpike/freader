@@ -2,7 +2,7 @@ require 'test_helper'
 
 class FetchNewArticlesJobTest < ActiveJob::TestCase
   def setup
-    @site = sites(:marco)
+    @site = sites(:buck)
   end
 
   test "site is updated with new articles" do

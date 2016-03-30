@@ -4,18 +4,22 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-df: 
+df:
   url: http://daringfireball.com
   feed_url: http://daringfireball.net/feeds/main
-  
-jp: 
+
+jp:
   url: https://jonathanpike.net
   feed_url: https://jonathanpike.net/feed.xml
-  
-marco: 
+
+marco:
   url: https://marco.org/
   feed_url: https://marco.org/rss
-  
+
+buck:
+  url: http://weblog.jamisbuck.org/
+  feed_url: http://feeds.feedburner.com/buckblog
+
 <% 10.times do |num| %>
 site_<%= num %>:
   title: site_<%= num %>
