@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :new_subscription
   helper_method :subscribed_sites
+  helper_method :any_subscriptions?
 
   # rubocop:disable Style/GuardClause
   def logged_in_user?
@@ -22,5 +23,9 @@ class ApplicationController < ActionController::Base
 
   def subscribed_sites
     current_user.sites.order("LOWER(title) asc")
+  end
+
+  def any_subscriptions?
+    current_user.subscriptions.any?
   end
 end
