@@ -3,7 +3,10 @@
 <h1 class="header">My Digest for <%= Time.now.strftime('%A, %B %e') %></h1>
 
 <ul>
-  <% if any_articles?(@sites) %>
+  <% if ! any_subscriptions? %>
+    <h2>You don't have any subscriptions yet. <%= image_tag "thinking.png", size: "60x56" %></h2>
+    <%= link_to "Add a new subscription", new_subscription_path, class: "button" %> <span>or</span> <%= link_to "Browse Sites", browse_path, class: "button" %>
+  <% elsif any_articles?(@sites) %>
     <% @sites.each do |site| %>
       <% if updated_sites?(site) %>
         <li class="site">
@@ -23,7 +26,7 @@
       <% end %>
     <% end %>
   <% else %>
-    <h3>None of your subscriptions have updated today. <%= image_tag "disappointed.png", size: "60x56" %> </h3> 
+    <h3>None of your subscriptions have updated today. <%= image_tag "disappointed.png", size: "60x56" %></h3> 
     <span class="button" id="reload">Check again?</span>
   <% end %>
 </ul>

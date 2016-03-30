@@ -5,8 +5,8 @@ module SubscriptionsHelper
     end
     false
   end
-  
+
   def updated_sites?(site)
     site.articles.where("published >= ?", Time.zone.now.beginning_of_day).length > 0
-  end 
+  end
 end
