@@ -9,8 +9,15 @@
       
     <div class="column column-50">
       <ul class="navigation float-right">
-        <li class="nav-item"><span>Hi, <%= link_to current_user.name, dashboard_path %></span></li>
-        <li class="nav-item"><%= link_to "Log Out", logout_path, method: :delete %></li>
+        <li class="nav-item dropdown">
+          Hi, <%= link_to(dashboard_path, "data-toggle"=>"dropdown") do %> 
+            <%= current_user.name %> <span class="caret">▼</span>
+          <% end %>
+          <ul class="dropdown-menu">
+            <li class="sub-nav"><%= link_to "Dashboard", dashboard_path %></li>
+            <li class="sub-nav"><%= link_to "Log Out", logout_path, method: :delete %></li>
+          </ul>
+        </li>
       </ul>
     </div>
   </nav> 
