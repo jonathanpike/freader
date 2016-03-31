@@ -19,6 +19,7 @@
   position: absolute;
   z-index: 1000;
   display: none;
+  right: 6%;
   padding: 5px;
   margin: 2px 0 0;
   min-width: 120px;
@@ -41,10 +42,15 @@
   font-size: 12px;
 }
 
+.quick-subscribe {
+  cursor: pointer;
+}
+
 .navigation {
   margin-right: 50px;
   list-style-type: none;
   margin-top: 20px;
+  display: inline-block;
 }
 
 .nav-item {

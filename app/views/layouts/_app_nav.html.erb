@@ -1,13 +1,11 @@
 <header>
   <nav class="row">
-    <div class="column column-50">
+    <div class="column">
       <ul class="navigation">
         <li class="nav-item"><%= link_to "My Digest", mydigest_path %></li>
         <li class="nav-item"><%= link_to "Browse Sites", browse_path %></li>
+        <li class="nav-item quick-subscribe"><a data-toggle="modal" data-target="#quick-add">Quick Subscribe</a></li>
       </ul>
-    </div>
-      
-    <div class="column column-50">
       <ul class="navigation float-right">
         <li class="nav-item dropdown">
           Hi, <%= link_to(dashboard_path, "data-toggle"=>"dropdown") do %> 
@@ -21,4 +19,5 @@
       </ul>
     </div>
   </nav> 
+  <%= render "quick_add" %>
 </header>
