@@ -9,6 +9,7 @@
       
     <div class="column column-50">
       <ul class="navigation float-right">
+        <li class="nav-item"><a data-toggle="modal" data-target="#quick-add">Quick Add</a></li>
         <li class="nav-item dropdown">
           Hi, <%= link_to(dashboard_path, "data-toggle"=>"dropdown") do %> 
             <%= current_user.name %> <span class="caret">▼</span>
@@ -21,4 +22,5 @@
       </ul>
     </div>
   </nav> 
+  <%= render "quick_add" %>
 </header>
