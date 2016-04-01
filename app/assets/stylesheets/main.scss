@@ -53,6 +53,16 @@
   display: inline-block;
 }
 
+#navbar {
+  background: #FFF;
+}
+
+.navbar-fixed {
+  position: fixed;
+  top: -(3em);
+  border-bottom: 1px solid #ccc;
+}
+
 .nav-item {
   display: inline;
   margin-left: 0.7em;
