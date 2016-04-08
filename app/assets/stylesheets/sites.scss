@@ -1,3 +1,31 @@
 // Place all the styles related to the sites controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.flex-container { 
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.flex-item {
+  width: 50%;
+  min-width: 350px;
+  padding: 0 5px 40px 0;
+}
+
+.site-title{
+  word-wrap: break-word;
+}
+
+#search-input {
+  width: 100%;
+}
+
+#search-input-box { 
+  overflow: hidden;
+  padding-right: 0.5em;
+}
+
+#search-submit {
+  float: right;
+}

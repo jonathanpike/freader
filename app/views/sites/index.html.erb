@@ -1,10 +1,23 @@
 <% provide(:title, "The Digest: Browse Sites") %>
 
+<div>
+  <%= form_tag(browse_path, :method => "get") do %>
+    <%= submit_tag "Search", id: "search-submit" %>
+    <div id="search-input-box">
+      <%= text_field_tag :search, params[:search], placeholder: "Search Sites", id: "search-input" %>
+    </div>
+  <% end %>
+</div>
+
+
+<div class="flex-container">
 <% @sites.each do |site| %>
-  <h1><%= link_to site.title, site_path(site.id) %></h1>
-  <p>Subscribers: <span id=<%= "subscribers_count_#{site.id}" %>><%= Subscription.where(site_id: site.id).count %></span></p>
-  <div id=<%= "subscription_button_#{site.id}" %>><%= render partial: "subscription_button", locals: {site: site} %></div>
-  <hr / >
+  <div class="flex-item">
+    <h1><%= link_to site.title, site_path(site.id), class: "site-title" %></h1>
+    <p>Subscribers: <span id=<%= "subscribers_count_#{site.id}" %>><%= Subscription.where(site_id: site.id).count %></span></p>
+    <div id=<%= "subscription_button_#{site.id}" %>><%= render partial: "subscription_button", locals: {site: site} %></div>
+  </div>
 <% end %>
+</div>
 
 <%= paginate @sites %>
