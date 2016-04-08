@@ -14,7 +14,7 @@ class Site < ActiveRecord::Base
   def fetch_information
     if feed.title
       update_attributes(title: feed.title)
-    else 
+    else
       update_attributes(title: feed.url)
     end
   end
