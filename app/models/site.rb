@@ -5,6 +5,10 @@ class Site < ActiveRecord::Base
   has_many :subscriptions
   has_many :users, through: :subscriptions
 
+  def self.search(search)
+    where("LOWER(title) LIKE ?", "%#{search.downcase}%") 
+  end
+
   # Get the title for the site
   # after it is added to the database
   def fetch_information

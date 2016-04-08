@@ -2,7 +2,11 @@ class SitesController < ApplicationController
   before_action :logged_in_user?
 
   def index
-    @sites = Site.order("LOWER(title) asc").page(params[:page])
+    if params[:search]
+      @sites = Site.search(params[:search]).order("LOWER(title) asc").page(params[:page])
+    else
+      @sites = Site.order("LOWER(title) asc").page(params[:page])
+    end
   end
 
   def show
