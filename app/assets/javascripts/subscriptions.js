@@ -7,6 +7,10 @@ var ready = function() {
   $('#reload').on('click', function(e) {
     location.reload();
   });
+  
+  $('.subscribe_button').on('click', function(e) {
+    $('.modal').modal('hide');
+  })
 };
 
 $(document).ready(ready);
