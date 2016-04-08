@@ -1,6 +1,6 @@
 <% provide(:title, "Dashboard for #{@user.name}") %>
 
-<h1>Welcome to your Dashboard, <%= @user.name %></h1>
+<h1>Welcome to your Dashboard, <%= @user.name %> <%= image_tag "nerd.png", size: "60x56", class: "emoji" %></h1>
 
 <p>Member since <%= @user.created_at.strftime("%B %Y") %></p>
 
