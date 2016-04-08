@@ -10,6 +10,7 @@ class Subscription < ActiveRecord::Base
   # Checks to see if Site exists in database.
   # If not, creates new site with same url and
   # feed_url as subscription
+  # rubocop:disable Metrics/AbcSize
   def site_exists?
     if Site.exists?(url: url)
       update_attribute(:site_id,
@@ -17,7 +18,8 @@ class Subscription < ActiveRecord::Base
     else
       new_site = Site.create(url: url,
                              feed_url: parse_feed_url)
-      FetchSiteInformationJob.perform_later(new_site.id)
+      FetchSiteInformationJob.perform_now(new_site.id)
+      FetchNewArticlesJob.perform_later(new_site.id)
       update_attribute(:site_id, new_site.id)
     end
   end
