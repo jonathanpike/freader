@@ -40,6 +40,6 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     get edit_activation_path(user.activation_token, email: user.email)
     assert user.reload.activated?
     follow_redirect!
-    assert_template 'static_pages/index'
+    assert_template 'subscriptions/index'
   end
 end
