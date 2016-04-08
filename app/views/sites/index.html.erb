@@ -9,15 +9,19 @@
   <% end %>
 </div>
 
-
+<% if @sites.empty? %>
+  <h2>Sorry, no site matches "<em><%= params[:search] %></em>".</h2>
+  <%= link_to "Add a New Subscription?", new_subscription_path, class: "button" %>
+<% else %>
 <div class="flex-container">
-<% @sites.each do |site| %>
-  <div class="flex-item">
-    <h1><%= link_to site.title, site_path(site.id), class: "site-title" %></h1>
-    <p>Subscribers: <span id=<%= "subscribers_count_#{site.id}" %>><%= Subscription.where(site_id: site.id).count %></span></p>
-    <div id=<%= "subscription_button_#{site.id}" %>><%= render partial: "subscription_button", locals: {site: site} %></div>
-  </div>
-<% end %>
+  <% @sites.each do |site| %>
+    <div class="flex-item">
+      <h1><%= link_to site.title, site_path(site.id), class: "site-title" %></h1>
+      <p>Subscribers: <span id=<%= "subscribers_count_#{site.id}" %>><%= Subscription.where(site_id: site.id).count %></span></p>
+      <div id=<%= "subscription_button_#{site.id}" %>><%= render partial: "subscription_button", locals: {site: site} %></div>
+    </div>
+  <% end %>
 </div>
+<% end %>
 
 <%= paginate @sites %>
