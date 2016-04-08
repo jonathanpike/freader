@@ -6,13 +6,17 @@ class Site < ActiveRecord::Base
   has_many :users, through: :subscriptions
 
   def self.search(search)
-    where("LOWER(title) LIKE ?", "%#{search.downcase}%") 
+    where("LOWER(title) LIKE ?", "%#{search.downcase}%")
   end
 
   # Get the title for the site
   # after it is added to the database
   def fetch_information
-    update_attributes(title: feed.title)
+    if feed.title
+      update_attributes(title: feed.title)
+    else 
+      update_attributes(title: feed.url)
+    end
   end
 
   # Check if any new articles are posted
