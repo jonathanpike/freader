@@ -10,7 +10,7 @@
 </div>
 
 <% if @sites.empty? %>
-  <h2>Sorry, no site matches "<em><%= params[:search] %></em>".</h2>
+  <h2>Sorry, no site matches "<em><%= params[:search] %></em>". <%= image_tag "pensive.png", size: "60x56", class: "emoji" %></h2>
   <%= link_to "Add a New Subscription?", new_subscription_path, class: "button" %>
 <% else %>
 <div class="flex-container">
