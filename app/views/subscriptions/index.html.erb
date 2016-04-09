@@ -1,6 +1,6 @@
 <% provide(:title, "The Digest: My Digest") %>
 
-<h1 class="header">My Digest for <%= Time.now.strftime('%A, %B %e') %> <%= image_tag "sunglasses.png", size: "60x56", class: "emoji" %></h1> 
+<h1 class="header">My Digest for <%= Time.now.strftime('%A, %B %e') %> <% if any_articles?(@sites) %><%= image_tag "sunglasses.png", size: "60x56", class: "emoji" %><% end %></h1> 
 <ul>
   <% if ! any_subscriptions? %>
     <h2>You don't have any subscriptions yet. <%= image_tag "thinking.png", size: "60x56", class: "emoji" %></h2>
