@@ -4,11 +4,9 @@
   <h1>Log In</h1>
 
   <%= form_for :session, url: login_path do |f| %>
-    <%= f.label :email %>:
-    <%= f.email_field :email %> <br />
+    <%= f.email_field :email, placeholder: "Email", autofocus: true %> 
     
-    <%= f.label :password %> (<%= link_to "Forgot Password?", new_reset_path %>):
-    <%= f.password_field :password %> <br />
+    <%= f.password_field :password, placeholder: "Password" %> 
     
     <%= f.submit "Log In" %><br />
     
@@ -18,5 +16,5 @@
     <% end %>
   <% end %>
   
-  <p>New User? <%= link_to "Sign Up Now", signup_path %></p> 
+  <p class="text-center">New User? <%= link_to "Sign Up Now", signup_path %> <span>•</span> <%= link_to "Forgot Password?", new_reset_path %></p> 
 </div>

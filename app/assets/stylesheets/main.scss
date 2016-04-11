@@ -125,3 +125,13 @@
 a:hover {
   text-decoration: underline;
 }
+
+input[type='email'], input[type='number'], input[type='password'],
+input[type='search'], input[type='tel'], input[type='text'],
+input[type='url'], textarea, select {
+  font-size: 20px;
+}
+
+.text-center {
+  text-align: center;
+}

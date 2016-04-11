@@ -3,21 +3,23 @@
 <div class="session-form">
   <h1>Sign Up</h1>
   
+  <p>It only takes 30 seconds!</p>
+  
   <%= form_for @user do |f| %>
-    <%= f.label :name %>:
-    <%= f.text_field :name %><br />
+    <%= f.text_field :name, placeholder: "Name", autofocus: true %>
+    <%= show_errors(@user, :name) %>
     
-    <%= f.label :email %>:
-    <%= f.email_field :email %><br />
+    <%= f.email_field :email, placeholder: "Email" %>
+    <%= show_errors(@user, :email) %>
     
-    <%= f.label :password %>:
-    <%= f.password_field :password %><br />
+    <%= f.password_field :password, placeholder: "Choose a Password" %>
+    <%= show_errors(@user, :password) %>
     
-    <%= f.label :password_confirmation %>:
-    <%= f.password_field :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, placeholder: "Confirm your Password" %>
+    <%= show_errors(@user, :password_confirmation) %>
     
     <%= f.submit "Create my Account" %>
   <% end %>
   
-  <p>Existing User? <%= link_to "Log In Now", login_path %></p> 
+  <p class="text-center">Existing User? <%= link_to "Log In Now", login_path %></p> 
 </div>
