@@ -7,7 +7,7 @@ var ready = function() {
     $(document).scroll(function() {
         var scrollTop = $(this).scrollTop();
 
-        if (scrollTop > y_pos + height) {
+        if (scrollTop > (y_pos + height) + 25) {
             $('#navbar').addClass("navbar-fixed").animate({
                 top: 0
             });
