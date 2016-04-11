@@ -1,17 +1,22 @@
-<h1>Log In</h1>
-<%= form_for :session, url: login_path do |f| %>
-  <%= f.label :email %>:
-  <%= f.email_field :email %> <br />
-  
-  <%= f.label :password %> (<%= link_to "Forgot Password?", new_reset_path %>):
-  <%= f.password_field :password %> <br />
-  
-  <%= f.submit "Log In" %><br />
-  
-  <%= f.label :remember_me do %>
-    <%= f.check_box :remember_me %>
-    <span>Remember me on this computer</span>
-  <% end %>
-<% end %>
+<% provide(:title, "Log In") %>
 
-<p>New User? <%= link_to "Sign Up Now", signup_path %></p> 
+<div class="session-form">  
+  <h1>Log In</h1>
+
+  <%= form_for :session, url: login_path do |f| %>
+    <%= f.label :email %>:
+    <%= f.email_field :email %> <br />
+    
+    <%= f.label :password %> (<%= link_to "Forgot Password?", new_reset_path %>):
+    <%= f.password_field :password %> <br />
+    
+    <%= f.submit "Log In" %><br />
+    
+    <%= f.label :remember_me do %>
+      <%= f.check_box :remember_me %>
+      <span>Remember me on this computer</span>
+    <% end %>
+  <% end %>
+  
+  <p>New User? <%= link_to "Sign Up Now", signup_path %></p> 
+</div>
