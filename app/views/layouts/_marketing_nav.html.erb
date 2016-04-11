@@ -9,8 +9,12 @@
         <li class="nav-item"><%= link_to "Features", '#' %></li>
         <li class="nav-item"><%= link_to "Pricing", '#' %></li>
         <li class="nav-item"><%= link_to "About", '#' %></li>
+      <% if ! current_user %>
         <li class="nav-item"><%= link_to "Log In", login_path, class: "button button-outline" %></li>
         <li class="nav-item"><%= link_to "Sign Up", signup_path, class: "button button-outline" %></li>
+      <% else %>
+        <li class="nav-item"><%= link_to "Go to my Digest", mydigest_path, class: "button button-outline" %></li>
+      <% end %>
       </ul>
     </div>
   </nav>
