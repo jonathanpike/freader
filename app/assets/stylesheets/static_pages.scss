@@ -1,3 +1,18 @@
 // Place all the styles related to the static_pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#main-box {
+  padding: 30px 0 30px;
+}
+
+.flex-container-marketing {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.flex-child {
+  width: 30%;
+  padding: 0 5px 0 5px;
+}

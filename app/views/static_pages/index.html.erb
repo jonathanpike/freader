@@ -1,3 +1,37 @@
 <% provide(:title, "The Digest") %>
 
-<h1>Hello world</h1>
+<div>
+  <div class="text-center" id="main-box">
+    <h1>The Digest is a site-subscriber</h1>
+    <h3>Keep up with all of the sites that you care about, without any pressure</h3>
+    <h3>Try it for free for 30 days</h3>
+    
+    <div class="session-form">
+      <%= render partial: 'users/new_form' %>
+    </div>
+  </div>
+  <hr />
+  
+  <h3 class="text-center">What makes the Digest differentt?</h3>
+  <div class="flex-container-marketing">
+    <div class="flex-child">
+      <h4>Not Another Inbox</h4>
+        <p>Email, messages, Twitter, Facebook, Instagram, Tumblr... <em>whew!</em> Those are a lot of inboxes to keep track of.</p>
+        
+        <p>The Digest is not another inbox.  This means no unread counts and no notifications. The subscriptions put in the Digest stay in the Digest, ready for you whenever you're ready for them.</p>
+    </div>
+    <div class="flex-child">
+      <h4 class="text-center">Context Is King</h4>
+        <p>Content creators spend time making sure their sites look just so.  Why rip an article out of context?</p>
+        
+        <p>The Digest provides an 140 character introduction to each article for you, giving you the choice to either continue reading or move along with your day.  That article seems interesting?  Click the title to go right to the creator's page.  Each outbound link is marked with an arrow when you hover, <span class="external">like so</span>.</p>
+    </div>
+    <div class="flex-child">
+      <h4 class="text-center">Read Now… or Later</h4>
+        <p>Sometimes, you just want to browse what's new.  You may come across something interesting, but not have time to read it right now.</p>
+        
+        <p>Instead of searching for it later, the Digest has the Stash. Just Stash any article that looks interesting.  When you have a few spare moments, your Stash will be waiting for you, just as you left it.</p>
+    </div>
+  </div>
+
+</div>
