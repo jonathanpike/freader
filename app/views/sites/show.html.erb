@@ -9,7 +9,7 @@
     <li>
       <h2><%= link_to sanitize(article.title), sanitize(article.link), target: "_blank", class: 'external' %></h2>
       <p class="meta"><%= article.published.strftime('%A, %B %e, %Y') %> <span>•</span> <em>estimated</em> <%= article.readingtime %></p>
-      <p class="content"><%= strip_tags(article.description).truncate(180, :separator => " ").html_safe %></p>
+      <p class="content"><%= strip_tags(article.description).truncate(140, :separator => " ").html_safe %></p>
       <hr />
     </li>
   <% end %>
