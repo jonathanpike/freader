@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   helper_method :new_subscription
   helper_method :subscribed_sites
   helper_method :any_subscriptions?
+  helper_method :user
 
   # rubocop:disable Style/GuardClause
   def logged_in_user?
@@ -28,4 +29,8 @@ class ApplicationController < ActionController::Base
   def any_subscriptions?
     current_user.subscriptions.any?
   end
+  
+  def user 
+    User.new
+  end 
 end

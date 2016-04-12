@@ -1,0 +1,15 @@
+<%= form_for user do |f| %>
+  <%= f.text_field :name, placeholder: "Name", autofocus: true %>
+  <%= show_errors(user, :name) %>
+  
+  <%= f.email_field :email, placeholder: "Email" %>
+  <%= show_errors(user, :email) %>
+  
+  <%= f.password_field :password, placeholder: "Choose a Password" %>
+  <%= show_errors(user, :password) %>
+  
+  <%= f.password_field :password_confirmation, placeholder: "Confirm your Password" %>
+  <%= show_errors(user, :password_confirmation) %>
+  
+  <%= f.submit "Create my Account" %>
+<% end %>
