@@ -22,10 +22,10 @@ class ApplicationController < ActionController::Base
   def new_subscription
     Subscription.new
   end
-  
+
   def new_stash
     Stash.new
-  end 
+  end
 
   def subscribed_sites
     current_user.sites.order("LOWER(title) asc")
@@ -34,8 +34,8 @@ class ApplicationController < ActionController::Base
   def any_subscriptions?
     current_user.subscriptions.any?
   end
-  
-  def user 
+
+  def user
     User.new
-  end 
+  end
 end
