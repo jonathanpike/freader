@@ -1,8 +1,10 @@
 <% provide(:title, "#{@site.title}") %>
 
-<h1><%= link_to @site.title, @site.url, target: "_blank", class: 'external' %></h1>
+<h1 class="site-title"><%= link_to @site.title, @site.url, target: "_blank", class: 'external' %></h1>
 
-<div id="subscription_button"><%= render partial: "subscription_button", locals: {site: @site} %></div>
+<div class="subscription_button" id=<%= "subscription_button_#{@site.id}" %>><%= render partial: "subscription_button", locals: {site: @site} %></div>
+
+<hr />
 
 <ul id="subscription_list">
   <% @articles.each do |article| %>
@@ -10,6 +12,7 @@
       <h2><%= link_to sanitize(article.title), sanitize(article.link), target: "_blank", class: 'external' %></h2>
       <p class="meta"><%= article.published.strftime('%A, %B %e, %Y') %> <span>•</span> <em>estimated</em> <%= article.readingtime %></p>
       <p class="content"><%= strip_tags(article.description).truncate(140, :separator => " ").html_safe %></p>
+      <%= render partial: "stashes/stashes_button", locals: {article: article} %>
       <hr />
     </li>
   <% end %>
