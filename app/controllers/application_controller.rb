@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
 
   helper_method :new_subscription
+  helper_method :new_stash
   helper_method :subscribed_sites
   helper_method :any_subscriptions?
   helper_method :user
@@ -21,6 +22,10 @@ class ApplicationController < ActionController::Base
   def new_subscription
     Subscription.new
   end
+  
+  def new_stash
+    Stash.new
+  end 
 
   def subscribed_sites
     current_user.sites.order("LOWER(title) asc")
