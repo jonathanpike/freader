@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+  # Static Pages Routes
   root 'static_pages#index'
+  get 'about' => 'static_pages#about'
 
+  # Users Routes
   resources :users
   get 'dashboard' => 'users#show'
 
@@ -16,18 +19,18 @@ Rails.application.routes.draw do
 
   resources :resets, only: [:new, :create, :edit, :update]
 
+  # Subscriptions Routes
   resources :subscriptions, only: [:index, :new, :create, :update]
   get 'subscriptions/manage' => 'subscriptions#manage'
   delete 'subscriptions/destroy_multiple' => 'subscriptions#destroy_multiple'
   get 'subscriptions/export' => 'subscriptions#export', defaults: { :format => 'xml' }
-
   get 'mydigest' => 'subscriptions#index'
 
+  # Sites Routes
   resources :sites, only: [:show]
+  get 'browse' => 'sites#index'
   
   resources :stashes, only: [:index, :create, :destroy]
-
-  get 'browse' => 'sites#index'
 
   # Sidekiq
   require 'sidekiq/web'
