@@ -8,7 +8,7 @@ var ready = function() {
     location.reload();
   });
   
-  $('.subscribe_button').on('click', function(e) {
+  $('.new_subscription_button').on('click', function(e) {
     $('.modal').modal('hide');
   })
 };
