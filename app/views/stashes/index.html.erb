@@ -1,0 +1,9 @@
+<% provide(:title, "My Stash") %>
+
+<h1>My Stash</h1>
+
+<ul class="article" id="stash-list">
+  <%= render partial: "stashes/stashes_list", locals: { stashes: @stashes } %>
+</ul>
+
+<%= paginate @stashes %>

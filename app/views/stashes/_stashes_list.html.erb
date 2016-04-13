@@ -1,0 +1,13 @@
+<% if stashes.any? %>
+  <% stashes.each do |stash| %>
+    <li>
+        <h2><%= link_to sanitize(stash.article.title), sanitize(stash.article.link), target: "_blank", class: 'external' %></h2>
+        <p class="meta"><%= stash.article.published.strftime('%A, %B %e, %Y') %> <span>•</span> <em>estimated</em> <%= stash.article.readingtime %></p>
+        <p class="content"><%= strip_tags(stash.article.description).truncate(140, :separator => " ").html_safe %></p>
+        <%= link_to "Remove From Stash", stash_path(stash.id), method: :delete, remote: true, class: "button" %>
+        <hr />
+    </li>
+  <% end %>
+<% else %>
+  <h2>You haven't stashed anything yet!</h2>
+<% end %>
