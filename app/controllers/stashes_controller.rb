@@ -1,5 +1,6 @@
 class StashesController < ApplicationController
   def index
+    @stashes = current_user.stashes.page(params[:page])
   end 
   
   def create
