@@ -1,0 +1,6 @@
+$("<%= "#stash_button_#{@stash.article.id}" %>").html("<%= j render partial: 'stashes/stashes_button', locals: { article: @stash.article } %>");
+$("#stash-list").html("<%= j render partial: 'stashes/stashes_list', locals: { stashes: current_user.stashes } %>");
+
+<% flash.each do |type, message| %>
+  $("#flash-messages").html("<%= j content_tag :p, message.html_safe, class: "flash_#{type}" %>");
+<% end %>

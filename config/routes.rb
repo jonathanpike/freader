@@ -24,6 +24,8 @@ Rails.application.routes.draw do
   get 'mydigest' => 'subscriptions#index'
 
   resources :sites, only: [:show]
+  
+  resources :stashes, only: [:index, :create, :destroy]
 
   get 'browse' => 'sites#index'
 

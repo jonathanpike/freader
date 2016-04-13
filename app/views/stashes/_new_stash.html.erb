@@ -1,0 +1,6 @@
+<%= form_for(new_stash, remote: true, html: {id: "stash_button_#{article_id}"}) do |f| %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :article_id, value: article_id %>
+
+  <%= f.submit "Stash It!", class: "button" %>
+<% end %>

@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :subscriptions
   has_many :sites, through: :subscriptions
+  has_many :stashes
 
   attr_accessor :remember_token, :activation_token, :reset_token
 

@@ -14,9 +14,19 @@
   margin-top: 0px;
 }
 
-.subscribe_button {
+.new_subscription_button {
   margin-bottom: 0px;
   width: 100%;
+}
+
+.subscription_button {
+  display: inline;
+  float: right;
+  margin-top: 10px;
+}
+
+.site-title {
+  display: inline;
 }
 
 .my_subscriptions {
