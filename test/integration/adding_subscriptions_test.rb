@@ -10,7 +10,8 @@ class AddingSubscriptionsTest < ActionDispatch::IntegrationTest
     assert is_logged_in?
     get new_subscription_path
     assert_difference 'Subscription.count' do
-      post subscriptions_path, subscription: { url: "http://blog.codinghorror.com/" }
+      post subscriptions_path, subscription: { url: "https://jonathanpike.net",
+                                               user_id: @user.id }
     end
     assert_redirected_to mydigest_path
     assert_not_nil flash[:notice]

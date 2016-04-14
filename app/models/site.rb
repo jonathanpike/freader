@@ -2,8 +2,11 @@ require 'feedjira'
 
 class Site < ActiveRecord::Base
   has_many :articles, dependent: :destroy
-  has_many :subscriptions
+  has_many :subscriptions, dependent: :destroy
   has_many :users, through: :subscriptions
+
+  validates :title, uniqueness: true
+  validates :url, uniqueness: true
 
   def self.search(search)
     where("LOWER(title) LIKE ?", "%#{search.downcase}%")

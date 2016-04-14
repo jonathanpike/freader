@@ -11,3 +11,9 @@ subscription_<%= num %>:
   site: site_<%= num %>
   user: brand
 <% end %>
+
+df:
+  url: http://daringfireball.com
+  feed_url: http://daringfireball.net/feeds/main
+  user: cooper
+  site: df

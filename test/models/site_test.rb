@@ -8,6 +8,14 @@ class SiteTest < ActiveSupport::TestCase
     @article = articles(:article_one)
   end
 
+  test "Can't add duplicate site" do
+    assert_no_difference 'Site.count' do
+      Site.create(title: "Personal Development",
+                  url: "https://jonathanpike.net",
+                  feed_url: "https://jonathanpike.net/feed.xml")
+    end
+  end
+
   test "fetch information gets title" do
     assert_nil @df.title
     @df.fetch_information

@@ -20,7 +20,8 @@ class SubscriptionsControllerTest < ActionController::TestCase
   test "add new subscription" do
     log_in_as(@user)
     assert_difference 'Subscription.count' do
-      post :create, subscription: { url: "http://leancrew.com/all-this/" }
+      post :create, subscription: { url: "https://jonathanpike.net",
+                                    user_id: @user.id }
     end
     assert_redirected_to mydigest_path
     assert_not_nil flash[:notice]
