@@ -12,6 +12,7 @@
 
 .header {
   margin-top: 0px;
+  display: inline;
 }
 
 .new_subscription_button {
@@ -50,4 +51,20 @@
 	&:hover {
   color: #606c76;
 	}
+}
+
+#back {
+  font-size: 50px;
+  display: inline;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+#forward {
+  font-size: 50px;
+  display: inline;
+  &:hover {
+    text-decoration: none;
+  }
 }
