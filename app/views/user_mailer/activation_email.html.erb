@@ -4,7 +4,7 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Welcome to Freader, <%= @user.name %></h1>
+    <h1>Welcome to the Digest, <%= @user.name %></h1>
     <p>
       Please activate your account by clicking the following link: 
       <%= link_to "Activate", edit_activation_url(@user.activation_token, 

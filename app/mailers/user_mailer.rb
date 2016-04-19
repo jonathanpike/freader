@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-  default from: "no-reply@freader.com"
+  default from: "no-reply@thedigest.io"
 
   def activation_email(user)
     @user = user
