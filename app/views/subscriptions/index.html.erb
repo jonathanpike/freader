@@ -1,10 +1,8 @@
 <% provide(:title, "My Digest") %>
 
-
-
 <%= link_to "◀", mydigest_path(date: (range - 1.day)), id: "back" %> 
 <h1 class="header">My Digest for <%= range.strftime('%A, %B %e') %> <% if any_articles?(@sites) %><%= image_tag "sunglasses.png", size: "60x56", class: "emoji" %><% end %></h1> 
-<% unless range == Time.zone.now.beginning_of_day %>
+<% unless range.beginning_of_day == Time.zone.now.beginning_of_day %>
   <%= link_to "▶", mydigest_path(date: (range + 1.day)), id: "forward" %>
 <% end %>
 <ul>
@@ -17,7 +15,7 @@
         <li class="site">
           <h1><%= link_to site.title, site.url, target: "_blank", class: 'external' %></h1>
           <ul class="article">
-          <% site.articles.where("articles.published >= ?", range).each do |article| %>
+          <% site.articles.where(published: range.beginning_of_day..range.end_of_day).each do |article| %>
             <li>
               <hr />
               <h2><%= link_to sanitize(article.title), sanitize(article.link), target: "_blank", class: 'external' %></h2>
