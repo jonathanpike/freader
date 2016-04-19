@@ -30,8 +30,12 @@
       <% end %>
     <% end %>
   <% else %>
-    <h3>None of your subscriptions have updated today. <%= image_tag "disappointed.png", size: "60x56", class: "emoji" %></h3> 
-    <span class="button" id="reload">↻ Check again?</span>
+    <% if range.beginning_of_day == Time.zone.now.beginning_of_day %>
+      <h3>None of your subscriptions have updated today. <%= image_tag "disappointed.png", size: "60x56", class: "emoji" %></h3> 
+      <span class="button" id="reload">↻ Check again?</span>
+    <% else %>
+      <h3>None of your subscriptions were updated on <%= range.strftime('%A, %B %e') %>. <%= image_tag "disappointed.png", size: "60x56", class: "emoji" %></h3> 
+      <% end %>
   <% end %>
 </ul>
 
