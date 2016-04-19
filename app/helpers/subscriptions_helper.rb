@@ -9,8 +9,12 @@ module SubscriptionsHelper
   def updated_sites?(site)
     site.articles.where("published >= ?", range).length > 0
   end
-  
+
   def range
-    Time.parse(params[:date]) || Time.zone.now.beginning_of_day
-  end 
+    if params[:date]
+      Time.zone.parse(params[:date])
+    else
+      Time.zone.now.beginning_of_day
+    end
+  end
 end
